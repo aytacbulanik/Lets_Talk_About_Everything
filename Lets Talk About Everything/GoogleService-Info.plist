@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>672160559772-7q8gls2qr6ghbmh8ct0hqm9hsul239dq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.672160559772-7q8gls2qr6ghbmh8ct0hqm9hsul239dq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA7j1vNJbMMzkGbqvZ-oaPLFnYB98RTWDw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>672160559772</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>aytac.Lets-Talk-About-Everything</string>
+	<key>PROJECT_ID</key>
+	<string>letstalkabouteverything-dc9e0</string>
+	<key>STORAGE_BUCKET</key>
+	<string>letstalkabouteverything-dc9e0.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:672160559772:ios:316df7c9bd426140487359</string>
+</dict>
+</plist>
