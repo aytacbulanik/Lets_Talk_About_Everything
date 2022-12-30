@@ -1,24 +1,164 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d4c-lN-hzI">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--WELCOME-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AnaVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="WELCOME" id="8Z5-0B-xSl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="id6-lZ-iVt">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="QMa-Pj-iRd" kind="show" id="iTa-fP-dIQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1046.5648854961833" y="3.5211267605633805"/>
+        </scene>
+        <!--Fikir EkleVC-->
+        <scene sceneID="ZDD-As-BfG">
+            <objects>
+                <viewController id="QMa-Pj-iRd" customClass="FikirEkleVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Xh-mo-fG5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tFP-ak-68f">
+                                <rect key="frame" x="20" y="118" width="353" height="41"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ibl-gm-Y8P"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Eğlence"/>
+                                    <segment title="Absürt"/>
+                                    <segment title="Spor"/>
+                                </segments>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="kategoriDegisTiklandi:" destination="QMa-Pj-iRd" eventType="valueChanged" id="oLw-1j-pQ2"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kullanıcı Adı" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YFd-n6-M0L">
+                                <rect key="frame" x="20" y="173" width="353" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="GZT-Xm-apa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P5V-W5-k7c">
+                                <rect key="frame" x="20" y="241" width="353" height="130"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="tEg-xA-IFX"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-84-poc">
+                                <rect key="frame" x="136.66666666666666" y="401" width="119.99999999999997" height="40"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Nso-FB-1e6"/>
+                                    <constraint firstAttribute="width" constant="120" id="x7S-HD-bEw"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="PAYLAŞ">
+                                    <fontDescription key="titleFontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="paylasButtonPressed:" destination="QMa-Pj-iRd" eventType="touchUpInside" id="0DJ-dc-VuJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nq1-cP-cKd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ME9-84-poc" firstAttribute="centerX" secondItem="3Xh-mo-fG5" secondAttribute="centerX" id="3cr-6c-yUO"/>
+                            <constraint firstItem="ME9-84-poc" firstAttribute="top" secondItem="P5V-W5-k7c" secondAttribute="bottom" constant="30" id="4ek-Aa-4gt"/>
+                            <constraint firstItem="P5V-W5-k7c" firstAttribute="leading" secondItem="YFd-n6-M0L" secondAttribute="leading" id="GfC-7b-6Gz"/>
+                            <constraint firstItem="tFP-ak-68f" firstAttribute="leading" secondItem="Nq1-cP-cKd" secondAttribute="leading" constant="20" id="M5v-si-QJm"/>
+                            <constraint firstItem="tFP-ak-68f" firstAttribute="top" secondItem="Nq1-cP-cKd" secondAttribute="top" constant="15" id="PwU-hi-dBF"/>
+                            <constraint firstItem="YFd-n6-M0L" firstAttribute="top" secondItem="tFP-ak-68f" secondAttribute="bottom" constant="15" id="YDm-ci-dip"/>
+                            <constraint firstItem="YFd-n6-M0L" firstAttribute="leading" secondItem="tFP-ak-68f" secondAttribute="leading" id="iBa-rU-DY3"/>
+                            <constraint firstItem="YFd-n6-M0L" firstAttribute="trailing" secondItem="tFP-ak-68f" secondAttribute="trailing" id="nHz-HS-k6J"/>
+                            <constraint firstItem="P5V-W5-k7c" firstAttribute="top" secondItem="YFd-n6-M0L" secondAttribute="bottom" constant="30" id="teN-89-yEU"/>
+                            <constraint firstItem="Nq1-cP-cKd" firstAttribute="trailing" secondItem="tFP-ak-68f" secondAttribute="trailing" constant="20" id="v1m-SH-h4c"/>
+                            <constraint firstItem="P5V-W5-k7c" firstAttribute="trailing" secondItem="YFd-n6-M0L" secondAttribute="trailing" id="xUz-7J-rWb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wcm-RP-KB2"/>
+                    <connections>
+                        <outlet property="btnPaylasOut" destination="ME9-84-poc" id="l8j-LQ-IlK"/>
+                        <outlet property="sgmntKategoriler" destination="tFP-ak-68f" id="YJJ-Uq-bjv"/>
+                        <outlet property="txtFikir" destination="P5V-W5-k7c" id="YIj-ZU-5Xx"/>
+                        <outlet property="txtKullaniciAdi" destination="YFd-n6-M0L" id="aKi-q6-mBy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KW6-BB-rdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1811" y="4"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ekn-7f-MNh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d4c-lN-hzI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QtN-8I-hr5">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="vo9-d4-WQm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QOh-3N-x5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="119.84732824427481" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
