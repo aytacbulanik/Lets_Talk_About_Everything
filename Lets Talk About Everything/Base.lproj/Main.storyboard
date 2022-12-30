@@ -33,13 +33,14 @@
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="kategoriDegisTiklandi:" destination="QMa-Pj-iRd" eventType="valueChanged" id="FDS-ex-Zxi"/>
+                                    <action selector="sgmntKategorilerTiklandi:" destination="BYZ-38-t0r" eventType="valueChanged" id="sKH-yL-s8a"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-fg-v7c">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-fg-v7c">
                                 <rect key="frame" x="0.0" y="163" width="393" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="96" id="9EB-Kh-4Mq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fikirCell" rowHeight="96" id="9EB-Kh-4Mq" customClass="FikirCell" customModule="Lets_Talk_About_Everything" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9EB-Kh-4Mq" id="q5T-eE-KeL">
@@ -95,10 +96,18 @@
                                                 <constraint firstItem="FMP-aJ-Y8N" firstAttribute="top" secondItem="oWQ-Go-D1q" secondAttribute="bottom" constant="8" symbolic="YES" id="YHY-YY-pWh"/>
                                                 <constraint firstItem="6af-xP-vUm" firstAttribute="leading" secondItem="ukH-WQ-x6A" secondAttribute="trailing" constant="8" id="aHW-xQ-Rnp"/>
                                                 <constraint firstItem="FMP-aJ-Y8N" firstAttribute="leading" secondItem="q5T-eE-KeL" secondAttribute="leadingMargin" id="i3O-p7-nyY"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6af-xP-vUm" secondAttribute="trailing" constant="20" symbolic="YES" id="u1G-Rh-atJ"/>
                                                 <constraint firstItem="oWQ-Go-D1q" firstAttribute="top" secondItem="ukH-WQ-x6A" secondAttribute="bottom" constant="8" id="ufc-ia-vMi"/>
                                                 <constraint firstItem="6af-xP-vUm" firstAttribute="centerY" secondItem="ukH-WQ-x6A" secondAttribute="centerY" id="zW4-LU-bz3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="begeniCountLabel" destination="uig-Qf-6pf" id="BXG-es-edl"/>
+                                            <outlet property="begeniImage" destination="loi-Op-122" id="grz-DU-0uk"/>
+                                            <outlet property="eklenmeTarihiLabel" destination="6af-xP-vUm" id="kWh-jf-xwl"/>
+                                            <outlet property="kullaniciAdiLabel" destination="ukH-WQ-x6A" id="FOm-Kk-61l"/>
+                                            <outlet property="yorumText" destination="oWQ-Go-D1q" id="Jnj-Fn-YEm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -123,6 +132,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="sgmntKategoriler" destination="hNG-ik-d09" id="AGO-Je-fdZ"/>
+                        <outlet property="tableView" destination="0zd-fg-v7c" id="VVv-4o-AEl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
