@@ -16,41 +16,46 @@ class AnaVC : UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var fikirler = [Fikir]()
+    private var fikirlerCollectionRef : CollectionReference!
+    private var fikirlerListener : ListenerRegistration!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        //tableView.estimatedRowHeight = 80
-        //tableView.rowHeight = UITableView.automaticDimension
-        getFirestoreFikir()
-    }
-
-    @IBAction func sgmntKategorilerTiklandi(_ sender: UISegmentedControl) {
+        fikirlerCollectionRef = Firestore.firestore().collection(Fikirler_REF)
         
     }
-    
-    func getFirestoreFikir() {
-        Firestore.firestore().collection(Fikirler_REF).getDocuments { snapshot, error in
+    override func viewWillAppear(_ animated: Bool) {
+        fikirlerListener = fikirlerCollectionRef.addSnapshotListener { (snapshot, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                if let snap = snapshot {
-                    if snap.documents.count > 0 {
-                        let data = snap.documents
-                        for veri in data {
-                            let documentId = veri.documentID
-                            guard let kulaniciAdi = veri[Kullanici_Adi] as? String , let fikirText = veri[Fikir_Text] as? String , let begeniSayisi = veri[Begeni_Sayisi] as? Int, let kategori = veri[Kategori] as? String , let eklenmeTarihi = veri[Eklenme_Tarihi] as? Timestamp, let yorumSayisi = veri[Yorum_Sayisi] as? Int else {return}
-                            let trueDate = eklenmeTarihi.dateValue()
-                            let newFikir = Fikir(kullaniciAdi: kulaniciAdi, eklenmeTarihi: trueDate, fikirText: fikirText, yorumSayisi: yorumSayisi, begeniSayisi: begeniSayisi, documentId: documentId)
+                self.fikirler.removeAll()
+                guard let snap = snapshot else {return}
+                
+                for document in snap.documents {
+                    let veri = document.data()
+                    let documentId = document.documentID
+                    let kulaniciAdi = veri[Kullanici_Adi] as? String
+                        let fikirText = veri[Fikir_Text] as? String
+                        let begeniSayisi = veri[Begeni_Sayisi] as? Int
+                        let yorumSayisi = veri[Yorum_Sayisi] as? Int
+                        let eklenmeTarihi = veri[Eklenme_Tarihi] as? Date ?? Date()
+                        let newFikir = Fikir(kullaniciAdi: kulaniciAdi, eklenmeTarihi: eklenmeTarihi, fikirText: fikirText, yorumSayisi: yorumSayisi, begeniSayisi: begeniSayisi, documentId: documentId)
+                    print("newFikir : \(newFikir.yorumSayisi)")
+                    
                             self.fikirler.append(newFikir)
                         }
                         self.tableView.reloadData()
                     }
                 }
-            
-            
-            }
-        }
+        
+    }
+    
+
+    @IBAction func sgmntKategorilerTiklandi(_ sender: UISegmentedControl) {
+        
     }
     
 }
@@ -65,9 +70,7 @@ extension AnaVC : UITableViewDelegate , UITableViewDataSource {
         cell.fikirCellUpdate(fikir: fikirler[indexPath.row])
         return cell
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
+   
     
     
 }
