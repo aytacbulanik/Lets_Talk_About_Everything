@@ -48,7 +48,7 @@
                                 <segments>
                                     <segment title="Eğlence"/>
                                     <segment title="Absürt"/>
-                                    <segment title="Spor"/>
+                                    <segment title="Gündem"/>
                                 </segments>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

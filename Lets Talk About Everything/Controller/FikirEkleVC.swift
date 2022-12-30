@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FikirEkleVC: UIViewController {
 
@@ -13,7 +14,7 @@ class FikirEkleVC: UIViewController {
     @IBOutlet weak var txtKullaniciAdi: UITextField!
     @IBOutlet weak var txtFikir: UITextView!
     @IBOutlet weak var btnPaylasOut: UIButton!
-    
+    var secilenKategori : String = Kategoriler.Absurt.rawValue
     let fikirText = "Lütfen Fikrinizi giriniz..."
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,34 @@ class FikirEkleVC: UIViewController {
     
 
     @IBAction func kategoriDegisTiklandi(_ sender: UISegmentedControl) {
-        
+        switch sgmntKategoriler.selectedSegmentIndex {
+        case 0 : secilenKategori = Kategoriler.Eglence.rawValue
+        case 1 : secilenKategori = Kategoriler.Absurt.rawValue
+        case 2 : secilenKategori = Kategoriler.Gundem.rawValue
+        default:
+            secilenKategori = Kategoriler.Eglence.rawValue
+        }
     }
     
     @IBAction func paylasButtonPressed(_ sender: UIButton) {
-        
+        guard let kullaniciAdi = txtKullaniciAdi.text , let fikirText = txtFikir.text else {return}
+        Firestore.firestore().collection(Fikirler_REF).addDocument(data:
+        [Kategori : secilenKategori,
+         Begeni_Sayisi : 0,
+         Yorum_Sayisi : 0,
+         Fikir_Text : fikirText,
+         Eklenme_Tarihi : FieldValue.serverTimestamp(),
+         Kullanici_Adi : kullaniciAdi
+                                                                    ]
+                                                                 
+        ) { hata in
+            if let hata = hata {
+                print(hata)
+            } else {
+                self.navigationController?.popViewController(animated: true)
+            }
+            
+        }
     }
     
 }
