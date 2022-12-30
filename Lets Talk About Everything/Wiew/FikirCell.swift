@@ -21,9 +21,12 @@ class FikirCell: UITableViewCell {
     }
     func fikirCellUpdate (fikir : Fikir) {
         kullaniciAdiLabel.text = fikir.kullaniciAdi
-        eklenmeTarihiLabel.text = fikir.eklenmeTarihi
         yorumText.text = fikir.fikirText
         begeniCountLabel.text = String(fikir.begeniSayisi)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        let sonHali = dateFormatter.string(from: fikir.eklenmeTarihi)
+        eklenmeTarihiLabel.text = sonHali
     }
     
 
