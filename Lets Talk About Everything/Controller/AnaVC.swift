@@ -34,6 +34,7 @@ class AnaVC : UIViewController {
     
     func setListener() {
         fikirlerListener = fikirlerCollectionRef.whereField(Kategori, isEqualTo: secilenKategori)
+            .order(by: Eklenme_Tarihi, descending: true)
             .addSnapshotListener { (snapshot, error) in
             if let error = error {
                 print(error.localizedDescription)
