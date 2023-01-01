@@ -33,30 +33,33 @@ class AnaVC : UIViewController {
     }
     
     func setListener() {
-        fikirlerListener = fikirlerCollectionRef.whereField(Kategori, isEqualTo: secilenKategori)
-            .order(by: Eklenme_Tarihi, descending: true)
-            .addSnapshotListener { (snapshot, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                self.fikirler.removeAll()
-                guard let snap = snapshot else {return}
-                
-                for document in snap.documents {
-                    let veri = document.data()
-                    let documentId = document.documentID
-                    let kulaniciAdi = veri[Kullanici_Adi] as? String ?? ""
-                    let fikirText = veri[Fikir_Text] as? String ?? ""
-                    let begeniSayisi = veri[Begeni_Sayisi] as? Int ?? 0
-                    let yorumSayisi = veri[Yorum_Sayisi] as? Int ?? 0
-                    let eklenmeTarihi = veri[Eklenme_Tarihi] as? Timestamp ?? Timestamp()
-                    
-                    let newFikir = Fikir(kullaniciAdi: kulaniciAdi, eklenmeTarihi: eklenmeTarihi.dateValue(), fikirText: fikirText, yorumSayisi: yorumSayisi, begeniSayisi: begeniSayisi, documentId: documentId)
-                            self.fikirler.append(newFikir)
+        
+        if secilenKategori == Kategoriler.Populer.rawValue {
+            fikirlerListener = fikirlerCollectionRef
+                .order(by: Eklenme_Tarihi, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.fikirler.removeAll()
+                    self.fikirler = Fikir.fikirGetir(snapshot: snapshot)
+                            self.tableView.reloadData()
                         }
-                        self.tableView.reloadData()
                     }
-                }
+        }else {
+            fikirlerListener = fikirlerCollectionRef.whereField(Kategori, isEqualTo: secilenKategori)
+                .order(by: Eklenme_Tarihi, descending: true)
+                .addSnapshotListener { (snapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    self.fikirler.removeAll()
+                    self.fikirler = Fikir.fikirGetir(snapshot: snapshot)
+                            self.tableView.reloadData()
+                        }
+                    }
+        }
+        
     }
     
 
