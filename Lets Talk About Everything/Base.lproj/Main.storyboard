@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d4c-lN-hzI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h2W-ii-E9i">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -230,10 +230,10 @@
             </objects>
             <point key="canvasLocation" x="1811" y="4"/>
         </scene>
-        <!--View Controller-->
+        <!--GirisVC-->
         <scene sceneID="H09-KV-tvC">
             <objects>
-                <viewController id="h2W-ii-E9i" sceneMemberID="viewController">
+                <viewController id="h2W-ii-E9i" customClass="GirisVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0PF-YD-qJr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,17 +241,19 @@
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lütfen e-mail giriniz..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L23-2d-xgh">
                                 <rect key="frame" x="20" y="89" width="353" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemCyanColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="f2h-AZ-Aul"/>
                                 </constraints>
-                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lütfen şifrel giriniz..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24o-YA-fTb">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lütfen şifrenizi giriniz..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="24o-YA-fTb">
                                 <rect key="frame" x="20" y="139" width="353" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <color key="tintColor" systemColor="systemCyanColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -264,6 +266,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Giriş Yap"/>
+                                <connections>
+                                    <action selector="GirisYapButtonPressed:" destination="h2W-ii-E9i" eventType="touchUpInside" id="NEt-fk-HAt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAL-ue-Shw">
                                 <rect key="frame" x="121.66666666666669" y="308" width="150" height="35"/>
@@ -274,6 +279,9 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Üye Ol"/>
+                                <connections>
+                                    <action selector="uyeOlButtonPressed:" destination="h2W-ii-E9i" eventType="touchUpInside" id="Dzi-1h-y8G"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eğer bir hesabınız yoksa üye olunuz..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZu-JR-bph">
                                 <rect key="frame" x="20" y="258" width="353" height="30"/>
@@ -307,6 +315,12 @@
                             <constraint firstItem="eAL-ue-Shw" firstAttribute="top" secondItem="lZu-JR-bph" secondAttribute="bottom" constant="20" id="yYO-O4-ueO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="girisYapOut" destination="auP-qH-3uE" id="zdu-uT-Ybp"/>
+                        <outlet property="lblMail" destination="L23-2d-xgh" id="iPc-L2-gch"/>
+                        <outlet property="lblSifre" destination="24o-YA-fTb" id="qIo-Y2-tP2"/>
+                        <outlet property="uyeOlOut" destination="eAL-ue-Shw" id="NOc-en-Jge"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C3a-gJ-kdD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -335,6 +349,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOh-3N-x5e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119.84732824427481" y="3.5211267605633805"/>
+        </scene>
+        <!--Kayit OlVC-->
+        <scene sceneID="12w-60-iXP">
+            <objects>
+                <viewController id="AWD-Dh-PGP" customClass="KayitOlVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5G9-8c-QLd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lütfen e-mail giriniz..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c6T-mo-UyI">
+                                <rect key="frame" x="20" y="89" width="353" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="II1-LM-cgJ"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lütfen şifrenizi giriniz..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5WU-DO-ChB">
+                                <rect key="frame" x="20" y="139" width="353" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lütfen Kullanıcı adı giriniz..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Hx-Kg-gpp">
+                                <rect key="frame" x="20" y="183" width="353" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="env-PP-1fC"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemCyanColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAk-Sl-Zg4">
+                                <rect key="frame" x="121.66666666666669" y="253" width="150" height="40"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="LdB-88-Jvi"/>
+                                    <constraint firstAttribute="height" constant="40" id="okb-aN-QLm"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Üye Ol"/>
+                                <connections>
+                                    <action selector="uyeOlButtonPressed:" destination="AWD-Dh-PGP" eventType="touchUpInside" id="u5K-dq-NrR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lL-UI-sEl">
+                                <rect key="frame" x="121.66666666666669" y="313" width="150" height="40"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="boS-Cz-MFL"/>
+                                    <constraint firstAttribute="width" constant="150" id="z3v-vs-58R"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Vazgeçtim"/>
+                                <connections>
+                                    <action selector="vazgectimButtonPressed:" destination="AWD-Dh-PGP" eventType="touchUpInside" id="dgD-h0-ZLH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UDB-KL-GgS"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5WU-DO-ChB" firstAttribute="leading" secondItem="c6T-mo-UyI" secondAttribute="leading" id="4tU-k2-UZ1"/>
+                            <constraint firstItem="5WU-DO-ChB" firstAttribute="trailing" secondItem="c6T-mo-UyI" secondAttribute="trailing" id="E75-2i-QhV"/>
+                            <constraint firstItem="7Hx-Kg-gpp" firstAttribute="top" secondItem="5WU-DO-ChB" secondAttribute="bottom" constant="10" id="EMc-iP-sgm"/>
+                            <constraint firstItem="5WU-DO-ChB" firstAttribute="height" secondItem="c6T-mo-UyI" secondAttribute="height" multiplier="0.85" id="PqP-eZ-D7I"/>
+                            <constraint firstItem="7Hx-Kg-gpp" firstAttribute="leading" secondItem="UDB-KL-GgS" secondAttribute="leading" constant="20" id="Q6d-Mj-65G"/>
+                            <constraint firstItem="RAk-Sl-Zg4" firstAttribute="centerX" secondItem="5G9-8c-QLd" secondAttribute="centerX" id="QY9-40-9gx"/>
+                            <constraint firstItem="c6T-mo-UyI" firstAttribute="leading" secondItem="UDB-KL-GgS" secondAttribute="leading" constant="20" id="VH5-ZA-t9z"/>
+                            <constraint firstItem="RAk-Sl-Zg4" firstAttribute="top" secondItem="7Hx-Kg-gpp" secondAttribute="bottom" constant="30" id="WKK-iu-g0d"/>
+                            <constraint firstItem="5lL-UI-sEl" firstAttribute="top" secondItem="RAk-Sl-Zg4" secondAttribute="bottom" constant="20" id="dax-KN-cGV"/>
+                            <constraint firstItem="5WU-DO-ChB" firstAttribute="top" secondItem="c6T-mo-UyI" secondAttribute="bottom" constant="10" id="oCP-at-rto"/>
+                            <constraint firstItem="c6T-mo-UyI" firstAttribute="top" secondItem="UDB-KL-GgS" secondAttribute="top" constant="30" id="sEV-yY-dwm"/>
+                            <constraint firstItem="UDB-KL-GgS" firstAttribute="trailing" secondItem="c6T-mo-UyI" secondAttribute="trailing" constant="20" id="suW-bE-LSJ"/>
+                            <constraint firstItem="UDB-KL-GgS" firstAttribute="trailing" secondItem="7Hx-Kg-gpp" secondAttribute="trailing" constant="20" id="uZc-Lx-gSM"/>
+                            <constraint firstItem="5lL-UI-sEl" firstAttribute="centerX" secondItem="5G9-8c-QLd" secondAttribute="centerX" id="zkl-Cp-Xft"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblKullaniciAdi" destination="7Hx-Kg-gpp" id="Gl3-Mr-rsa"/>
+                        <outlet property="lblMail" destination="c6T-mo-UyI" id="Cxt-SS-7jY"/>
+                        <outlet property="lblSifre" destination="5WU-DO-ChB" id="rZV-Y0-1qj"/>
+                        <outlet property="uyeOlButtonOut" destination="RAk-Sl-Zg4" id="NWv-OV-nfD"/>
+                        <outlet property="vazgectimButtonOut" destination="5lL-UI-sEl" id="dw3-sj-W1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nih-a5-tiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1006.8702290076335" y="-670.42253521126759"/>
         </scene>
     </scenes>
     <resources>

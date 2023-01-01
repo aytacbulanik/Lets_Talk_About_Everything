@@ -30,6 +30,8 @@
 		B4E07657295ED9E300D957A0 /* Sabitler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E07656295ED9E300D957A0 /* Sabitler.swift */; };
 		B4E07659295EFA2D00D957A0 /* Fikir.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E07658295EFA2D00D957A0 /* Fikir.swift */; };
 		B4E0765B295EFBEE00D957A0 /* FikirCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E0765A295EFBEE00D957A0 /* FikirCell.swift */; };
+		B4F2E1B929620333007E1601 /* GirisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2E1B829620333007E1601 /* GirisVC.swift */; };
+		B4F2E1BB29620374007E1601 /* KayitOlVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F2E1BA29620374007E1601 /* KayitOlVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		B4E07656295ED9E300D957A0 /* Sabitler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sabitler.swift; sourceTree = "<group>"; };
 		B4E07658295EFA2D00D957A0 /* Fikir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fikir.swift; sourceTree = "<group>"; };
 		B4E0765A295EFBEE00D957A0 /* FikirCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FikirCell.swift; sourceTree = "<group>"; };
+		B4F2E1B829620333007E1601 /* GirisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GirisVC.swift; sourceTree = "<group>"; };
+		B4F2E1BA29620374007E1601 /* KayitOlVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KayitOlVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,8 @@
 			children = (
 				B4343A8B29599C7B0048CB3E /* AnaVC.swift */,
 				B4E07652295EC78A00D957A0 /* FikirEkleVC.swift */,
+				B4F2E1B829620333007E1601 /* GirisVC.swift */,
+				B4F2E1BA29620374007E1601 /* KayitOlVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -219,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4F2E1B929620333007E1601 /* GirisVC.swift in Sources */,
 				B4343A8C29599C7B0048CB3E /* AnaVC.swift in Sources */,
 				B4E07657295ED9E300D957A0 /* Sabitler.swift in Sources */,
 				B4E07659295EFA2D00D957A0 /* Fikir.swift in Sources */,
@@ -226,6 +233,7 @@
 				B4343A8829599C7B0048CB3E /* AppDelegate.swift in Sources */,
 				B4343A8A29599C7B0048CB3E /* SceneDelegate.swift in Sources */,
 				B4E07653295EC78A00D957A0 /* FikirEkleVC.swift in Sources */,
+				B4F2E1BB29620374007E1601 /* KayitOlVC.swift in Sources */,
 				B4E0765B295EFBEE00D957A0 /* FikirCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
