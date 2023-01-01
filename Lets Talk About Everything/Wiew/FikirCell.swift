@@ -24,7 +24,8 @@ class FikirCell: UITableViewCell {
         yorumText.text = fikir.fikirText
         begeniCountLabel.text = String(fikir.begeniSayisi)
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .full
         let sonHali = dateFormatter.string(from: fikir.eklenmeTarihi)
         eklenmeTarihiLabel.text = sonHali
     }

@@ -18,6 +18,7 @@ class AnaVC : UIViewController {
     private var fikirler = [Fikir]()
     private var fikirlerCollectionRef : CollectionReference!
     private var fikirlerListener : ListenerRegistration!
+    private var secilenKategori = Kategoriler.Eglence.rawValue
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,13 @@ class AnaVC : UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        fikirlerListener = fikirlerCollectionRef.addSnapshotListener { (snapshot, error) in
+        
+        setListener()
+    }
+    
+    func setListener() {
+        fikirlerListener = fikirlerCollectionRef.whereField(Kategori, isEqualTo: secilenKategori)
+            .addSnapshotListener { (snapshot, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
@@ -37,25 +44,32 @@ class AnaVC : UIViewController {
                 for document in snap.documents {
                     let veri = document.data()
                     let documentId = document.documentID
-                    let kulaniciAdi = veri[Kullanici_Adi] as? String
-                        let fikirText = veri[Fikir_Text] as? String
-                        let begeniSayisi = veri[Begeni_Sayisi] as? Int
-                        let yorumSayisi = veri[Yorum_Sayisi] as? Int
-                        let eklenmeTarihi = veri[Eklenme_Tarihi] as? Date ?? Date()
-                        let newFikir = Fikir(kullaniciAdi: kulaniciAdi, eklenmeTarihi: eklenmeTarihi, fikirText: fikirText, yorumSayisi: yorumSayisi, begeniSayisi: begeniSayisi, documentId: documentId)
-                    print("newFikir : \(newFikir.yorumSayisi)")
+                    let kulaniciAdi = veri[Kullanici_Adi] as? String ?? ""
+                    let fikirText = veri[Fikir_Text] as? String ?? ""
+                    let begeniSayisi = veri[Begeni_Sayisi] as? Int ?? 0
+                    let yorumSayisi = veri[Yorum_Sayisi] as? Int ?? 0
+                    let eklenmeTarihi = veri[Eklenme_Tarihi] as? Timestamp ?? Timestamp()
                     
+                    let newFikir = Fikir(kullaniciAdi: kulaniciAdi, eklenmeTarihi: eklenmeTarihi.dateValue(), fikirText: fikirText, yorumSayisi: yorumSayisi, begeniSayisi: begeniSayisi, documentId: documentId)
                             self.fikirler.append(newFikir)
                         }
                         self.tableView.reloadData()
                     }
                 }
-        
     }
     
 
     @IBAction func sgmntKategorilerTiklandi(_ sender: UISegmentedControl) {
-        
+        switch sgmntKategoriler.selectedSegmentIndex {
+        case 0 : secilenKategori = Kategoriler.Eglence.rawValue
+        case 1 : secilenKategori = Kategoriler.Absurt.rawValue
+        case 2 : secilenKategori = Kategoriler.Gundem.rawValue
+        case 3 : secilenKategori = Kategoriler.Populer.rawValue
+        default:
+            secilenKategori = Kategoriler.Populer.rawValue
+        }
+        fikirlerListener.remove()
+        setListener()
     }
     
 }

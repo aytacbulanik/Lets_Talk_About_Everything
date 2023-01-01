@@ -14,7 +14,7 @@ class FikirEkleVC: UIViewController {
     @IBOutlet weak var txtKullaniciAdi: UITextField!
     @IBOutlet weak var txtFikir: UITextView!
     @IBOutlet weak var btnPaylasOut: UIButton!
-    var secilenKategori : String = Kategoriler.Absurt.rawValue
+    var secilenKategori : String = Kategoriler.Eglence.rawValue
     let fikirText = "Lütfen Fikrinizi giriniz..."
     override func viewDidLoad() {
         super.viewDidLoad()
