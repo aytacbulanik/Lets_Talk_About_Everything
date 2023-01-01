@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FikirCell: UITableViewCell {
 
@@ -14,12 +15,21 @@ class FikirCell: UITableViewCell {
     @IBOutlet weak var yorumText: UILabel!
     @IBOutlet weak var begeniCountLabel: UILabel!
     @IBOutlet weak var begeniImage: UIImageView!
+    
+    var secilenFikir : Fikir!
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(begeniGuncelle))
+        begeniImage.addGestureRecognizer(tap)
+        begeniImage.isUserInteractionEnabled = true
     }
+    @objc func begeniGuncelle() {
+        Firestore.firestore().collection(Fikirler_REF).document(secilenFikir.documentId!).setData([Begeni_Sayisi : secilenFikir.begeniSayisi + 1], merge: true)
+    }
+    
     func fikirCellUpdate (fikir : Fikir) {
+        secilenFikir = fikir
         kullaniciAdiLabel.text = fikir.kullaniciAdi
         yorumText.text = fikir.fikirText
         begeniCountLabel.text = String(fikir.begeniSayisi)
