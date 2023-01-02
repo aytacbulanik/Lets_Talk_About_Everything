@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AWD-Dh-PGP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="d4c-lN-hzI">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -126,6 +126,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="WELCOME" id="8Z5-0B-xSl">
+                        <barButtonItem key="leftBarButtonItem" title="ÇıkışYap" id="1eH-p0-ZXj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="logOutButtonPressed:" destination="BYZ-38-t0r" id="CPi-oG-vdJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="id6-lZ-iVt">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -233,7 +239,7 @@
         <!--GirisVC-->
         <scene sceneID="H09-KV-tvC">
             <objects>
-                <viewController id="h2W-ii-E9i" customClass="GirisVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GirisVC" id="h2W-ii-E9i" customClass="GirisVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0PF-YD-qJr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -280,7 +286,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Üye Ol"/>
                                 <connections>
-                                    <action selector="uyeOlButtonPressed:" destination="h2W-ii-E9i" eventType="touchUpInside" id="Dzi-1h-y8G"/>
+                                    <segue destination="AWD-Dh-PGP" kind="presentation" modalPresentationStyle="fullScreen" id="PXj-sV-A3A"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eğer bir hesabınız yoksa üye olunuz..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZu-JR-bph">
@@ -433,6 +439,7 @@
                             <constraint firstItem="5lL-UI-sEl" firstAttribute="centerX" secondItem="5G9-8c-QLd" secondAttribute="centerX" id="zkl-Cp-Xft"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="l2u-Gw-hqJ"/>
                     <connections>
                         <outlet property="lblKullaniciAdi" destination="7Hx-Kg-gpp" id="Gl3-Mr-rsa"/>
                         <outlet property="lblMail" destination="c6T-mo-UyI" id="Cxt-SS-7jY"/>

@@ -19,6 +19,7 @@ class AnaVC : UIViewController {
     private var fikirlerCollectionRef : CollectionReference!
     private var fikirlerListener : ListenerRegistration!
     private var secilenKategori = Kategoriler.Eglence.rawValue
+    private var listenerHandle : AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,19 @@ class AnaVC : UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        listenerHandle = Auth.auth().addStateDidChangeListener({ auth, user in
+            if user == nil {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let girisVC = storyBoard.instantiateViewController(withIdentifier: "GirisVC")
+                self.present(girisVC, animated: true)
+            } else {
+                self.setListener()
+            }
+        })
         
-        setListener()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        fikirlerListener.remove()
     }
     
     func setListener() {
@@ -74,6 +86,15 @@ class AnaVC : UIViewController {
         }
         fikirlerListener.remove()
         setListener()
+    }
+    
+    @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
+        do {
+            try Auth.auth().signOut()
+        }catch let oturumhatasi as NSError{
+            print("Çıkış yapılamadı", oturumhatasi.localizedDescription)
+        }
+        
     }
     
 }

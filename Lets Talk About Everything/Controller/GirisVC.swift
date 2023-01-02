@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class GirisVC: UIViewController {
 
@@ -25,9 +26,17 @@ class GirisVC: UIViewController {
     
 
     @IBAction func GirisYapButtonPressed(_ sender: Any) {
+        guard let mail = lblMail.text , let password = lblSifre.text else {return}
+        Auth.auth().signIn(withEmail: mail, password: password) {
+            kullanici , error in
+            if let error = error {
+                print("Kullanıcı giriş yapamadı", error.localizedDescription)
+            } else {
+                self.dismiss(animated: true)
+            }
+        }
     }
     
-    @IBAction func uyeOlButtonPressed(_ sender: Any) {
-    }
+   
     
 }
