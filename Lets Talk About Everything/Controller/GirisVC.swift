@@ -11,18 +11,16 @@ class GirisVC: UIViewController {
 
     
     @IBOutlet var lblMail: UITextField!
-    
     @IBOutlet var lblSifre: UITextField!
-    
     @IBOutlet var girisYapOut: UIButton!
-    
     @IBOutlet var uyeOlOut: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        girisYapOut.layer.cornerRadius = 10
+        uyeOlOut.layer.cornerRadius = 10
     }
     
 

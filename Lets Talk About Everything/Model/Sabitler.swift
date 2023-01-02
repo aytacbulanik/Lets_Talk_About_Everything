@@ -14,3 +14,8 @@ let Begeni_Sayisi = "BegeniSayisi"
 let Fikir_Text = "FikirText"
 let Eklenme_Tarihi = "EklenmeTarihi"
 let Kullanici_Adi = "KullaniciAdi"
+
+
+let KULLANICILAR_REF = "Kullanicilar"
+let KULLANICIADI = "KullaniciAdi"
+let KULLANICIOLUSTURULMATARIHI = "KullaniciOlusturulmaTarihi"
