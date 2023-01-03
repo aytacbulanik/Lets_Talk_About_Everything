@@ -9,14 +9,20 @@ import UIKit
 
 class YorumlarVC: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var yorumTextField: UITextField!
+    
     var secilenFikir : Fikir!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(secilenFikir.fikirText)
+        
     }
     
 
     
-
+    @IBAction func yorumEklebuttonPressed(_ sender: Any) {
+        
+    }
+    
 }
