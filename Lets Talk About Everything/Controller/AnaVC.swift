@@ -97,6 +97,16 @@ class AnaVC : UIViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "yorumSegue" {
+            if let hedefVC = segue.destination as? YorumlarVC {
+                if let fikirim = sender as? Fikir {
+                    hedefVC.secilenFikir = fikirim
+                }
+            }
+        }
+    }
+    
 }
 
 extension AnaVC : UITableViewDelegate , UITableViewDataSource {
@@ -108,6 +118,10 @@ extension AnaVC : UITableViewDelegate , UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fikirCell", for: indexPath) as! FikirCell
         cell.fikirCellUpdate(fikir: fikirler[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "yorumSegue", sender: fikirler[indexPath.row])
     }
    
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B42ADA3C296400F9009E064F /* YorumlarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42ADA3B296400F9009E064F /* YorumlarVC.swift */; };
 		B4343A8829599C7B0048CB3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4343A8729599C7B0048CB3E /* AppDelegate.swift */; };
 		B4343A8A29599C7B0048CB3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4343A8929599C7B0048CB3E /* SceneDelegate.swift */; };
 		B4343A8C29599C7B0048CB3E /* AnaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4343A8B29599C7B0048CB3E /* AnaVC.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B42ADA3B296400F9009E064F /* YorumlarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YorumlarVC.swift; sourceTree = "<group>"; };
 		B4343A8429599C7B0048CB3E /* Lets Talk About Everything.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lets Talk About Everything.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4343A8729599C7B0048CB3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4343A8929599C7B0048CB3E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,11 +96,11 @@
 		B4343A8629599C7B0048CB3E /* Lets Talk About Everything */ = {
 			isa = PBXGroup;
 			children = (
+				B4343A8729599C7B0048CB3E /* AppDelegate.swift */,
+				B4343A8929599C7B0048CB3E /* SceneDelegate.swift */,
 				B4E07651295EC76A00D957A0 /* Wiew */,
 				B4E07650295EC76000D957A0 /* Controller */,
 				B4E0764F295EC75200D957A0 /* Model */,
-				B4343A8729599C7B0048CB3E /* AppDelegate.swift */,
-				B4343A8929599C7B0048CB3E /* SceneDelegate.swift */,
 				B4343A8D29599C7B0048CB3E /* Main.storyboard */,
 				B4343A9029599C7D0048CB3E /* Assets.xcassets */,
 				B4343A9229599C7D0048CB3E /* LaunchScreen.storyboard */,
@@ -125,6 +127,7 @@
 				B4E07652295EC78A00D957A0 /* FikirEkleVC.swift */,
 				B4F2E1B829620333007E1601 /* GirisVC.swift */,
 				B4F2E1BA29620374007E1601 /* KayitOlVC.swift */,
+				B42ADA3B296400F9009E064F /* YorumlarVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				B4343A8A29599C7B0048CB3E /* SceneDelegate.swift in Sources */,
 				B4E07653295EC78A00D957A0 /* FikirEkleVC.swift in Sources */,
 				B4F2E1BB29620374007E1601 /* KayitOlVC.swift in Sources */,
+				B42ADA3C296400F9009E064F /* YorumlarVC.swift in Sources */,
 				B4E0765B295EFBEE00D957A0 /* FikirCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

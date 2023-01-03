@@ -36,7 +36,7 @@
                                     <action selector="sgmntKategorilerTiklandi:" destination="BYZ-38-t0r" eventType="valueChanged" id="sKH-yL-s8a"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-fg-v7c">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0zd-fg-v7c">
                                 <rect key="frame" x="0.0" y="163" width="393" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -66,7 +66,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="FMP-aJ-Y8N">
-                                                    <rect key="frame" x="20" y="79" width="56" height="25"/>
+                                                    <rect key="frame" x="20" y="79" width="118" height="25"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="loi-Op-122">
                                                             <rect key="frame" x="0.0" y="-0.33333333333333215" width="25" height="24.666666666666664"/>
@@ -82,9 +82,27 @@
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ylr-C8-KP3">
+                                                            <rect key="frame" x="62" y="1.6666666666666661" width="25" height="23.666666666666671"/>
+                                                            <color key="tintColor" systemColor="systemCyanColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="SVr-iH-tOi"/>
+                                                                <constraint firstAttribute="width" constant="25" id="nPy-hy-pon"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6n-64-ELa">
+                                                            <rect key="frame" x="93" y="0.0" width="25" height="25"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="25" id="zJb-WC-dbe"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="uig-Qf-6pf" firstAttribute="centerY" secondItem="loi-Op-122" secondAttribute="centerY" id="6Kj-Ul-eqU"/>
+                                                        <constraint firstItem="V6n-64-ELa" firstAttribute="centerY" secondItem="ylr-C8-KP3" secondAttribute="centerY" id="aCU-er-Lre"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -107,6 +125,7 @@
                                             <outlet property="begeniImage" destination="loi-Op-122" id="grz-DU-0uk"/>
                                             <outlet property="eklenmeTarihiLabel" destination="6af-xP-vUm" id="kWh-jf-xwl"/>
                                             <outlet property="kullaniciAdiLabel" destination="ukH-WQ-x6A" id="FOm-Kk-61l"/>
+                                            <outlet property="lblYorumSayisi" destination="V6n-64-ELa" id="ZOs-kS-6gk"/>
                                             <outlet property="yorumText" destination="oWQ-Go-D1q" id="Jnj-Fn-YEm"/>
                                         </connections>
                                     </tableViewCell>
@@ -142,11 +161,28 @@
                     <connections>
                         <outlet property="sgmntKategoriler" destination="hNG-ik-d09" id="AGO-Je-fdZ"/>
                         <outlet property="tableView" destination="0zd-fg-v7c" id="VVv-4o-AEl"/>
+                        <segue destination="5Fg-cm-P7C" kind="show" identifier="yorumSegue" id="axr-8i-JAm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1046.5648854961833" y="3.5211267605633805"/>
+        </scene>
+        <!--YorumlarVC-->
+        <scene sceneID="GfE-1X-ZBK">
+            <objects>
+                <viewController id="5Fg-cm-P7C" customClass="YorumlarVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oGy-5m-fIy">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="hQV-Ss-2HX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mFL-8H-Dlo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ge0-nR-dcM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1943" y="363"/>
         </scene>
         <!--Fikir EkleVC-->
         <scene sceneID="ZDD-As-BfG">
@@ -234,7 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KW6-BB-rdL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811" y="4"/>
+            <point key="canvasLocation" x="1943" y="-313"/>
         </scene>
         <!--GirisVC-->
         <scene sceneID="H09-KV-tvC">
@@ -454,6 +490,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lasso" catalog="system" width="128" height="121"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
