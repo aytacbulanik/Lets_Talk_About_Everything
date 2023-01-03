@@ -18,5 +18,13 @@ class YorumCell: UITableViewCell {
         // Initialization code
     }
 
-    
+    func gorunumAyarla(yorum : Yorum) {
+        
+        lblKullaniciAdi.text = yorum.kullaniciAdi
+        lblYorumText.text = yorum.yorumText
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MM YYYY, hh:mm"
+        let sonHali = dateFormatter.string(from: yorum.eklenmeTarihi)
+       lblTarih.text = sonHali
+    }
 }
