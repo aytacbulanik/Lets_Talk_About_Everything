@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class YorumlarVC: UIViewController {
     
@@ -24,6 +25,7 @@ class YorumlarVC: UIViewController {
 
     
     @IBAction func yorumEklebuttonPressed(_ sender: Any) {
+        guard let kullanici = Auth.auth().currentUser?.displayName else {return}
         
     }
     
