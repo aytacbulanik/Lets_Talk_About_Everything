@@ -44,11 +44,11 @@ class YorumlarVC: UIViewController {
                                  Eklenme_Tarihi : FieldValue.serverTimestamp(),
                                    KULLANICIADI : self.kullaniciAdi
                                     ], forDocument: yeniYorumRef)
-    
+                
             } catch let hata {
                 print("hata meydana geldi" , hata.localizedDescription)
             }
-            
+            return nil
         } completion: { nesne, error in
             if let error = error {
                 print(error.localizedDescription)
@@ -60,9 +60,6 @@ class YorumlarVC: UIViewController {
     
 }
 
-        
-    
-    
 
 extension YorumlarVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
