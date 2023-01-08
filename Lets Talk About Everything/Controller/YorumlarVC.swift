@@ -29,15 +29,40 @@ class YorumlarVC: UIViewController {
         
     }
     
-
-    
     @IBAction func yorumEklebuttonPressed(_ sender: Any) {
         guard let yorumText = yorumTextField.text else {return}
-        firestore.runTransaction(<#T##updateBlock: (Transaction, NSErrorPointer) -> Any?##(Transaction, NSErrorPointer) -> Any?#>, completion: <#T##(Any?, Error?) -> Void#>)
-        
+        firestore.runTransaction { transaction, errorPointer in
+            let secilenFikirKayit : DocumentSnapshot
+            do {
+                try secilenFikirKayit = transaction.getDocument(self.firestore.collection(Fikirler_REF).document(self.secilenFikir.documentId))
+                
+                guard let eskiYorumSayisi = (secilenFikirKayit.data()?[Yorum_Sayisi] as? Int) else {return nil}
+                transaction.updateData([Yorum_Sayisi : eskiYorumSayisi + 1], forDocument: self.fikirRef)
+                let yeniYorumRef = self.firestore.collection(Fikirler_REF).document(self.secilenFikir.documentId).collection(YORUMLAR_REF).document()
+                
+                transaction.setData([YORUM_TEXT : yorumText,
+                                 Eklenme_Tarihi : FieldValue.serverTimestamp(),
+                                   KULLANICIADI : self.kullaniciAdi
+                                    ], forDocument: yeniYorumRef)
+    
+            } catch let hata {
+                print("hata meydana geldi" , hata.localizedDescription)
+            }
+            
+        } completion: { nesne, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.yorumTextField.text = ""
+            }
+        }
     }
     
 }
+
+        
+    
+    
 
 extension YorumlarVC : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
