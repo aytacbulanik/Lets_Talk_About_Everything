@@ -18,7 +18,7 @@ class YorumlarVC: UIViewController {
     var fikirRef : DocumentReference!
     let firestore = Firestore.firestore()
     var kullaniciAdi : String!
-    var yorumlarCollectionREF : ListenerRegistration!
+    var yorumlarListener : ListenerRegistration!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -27,17 +27,20 @@ class YorumlarVC: UIViewController {
         if let adi = Auth.auth().currentUser?.displayName {
             kullaniciAdi = adi
         }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         yorumlariGetir()
     }
     func yorumlariGetir() {
-        
-        yorumlarCollectionREF = firestore.collection(Fikirler_REF).document(secilenFikir.documentId).collection(YORUMLAR_REF).addSnapshotListener({ snapshot, error in
+        yorumlarListener = firestore.collection(Fikirler_REF).document(secilenFikir.documentId).collection(YORUMLAR_REF).order(by: Eklenme_Tarihi, descending: false)
+            .addSnapshotListener({ snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
             } else {
                 self.yorumlar.removeAll()
                 self.yorumlar = Yorum.yorumlariGetir(snapshot: snapshot)
-                print(self.yorumlar)
                 self.tableView.reloadData()
             }
         })
