@@ -59,7 +59,8 @@ class YorumlarVC: UIViewController {
                 
                 transaction.setData([YORUM_TEXT : yorumText,
                                  Eklenme_Tarihi : FieldValue.serverTimestamp(),
-                                   KULLANICIADI : self.kullaniciAdi
+                                   KULLANICIADI : self.kullaniciAdi,
+                                   KULLANICI_ID : Auth.auth().currentUser?.uid ?? ""
                                     ], forDocument: yeniYorumRef)
                 
             } catch let hata {

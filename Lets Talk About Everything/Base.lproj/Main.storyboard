@@ -105,6 +105,14 @@
                                                         <constraint firstItem="V6n-64-ELa" firstAttribute="centerY" secondItem="ylr-C8-KP3" secondAttribute="centerY" id="aCU-er-Lre"/>
                                                     </constraints>
                                                 </stackView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aWH-aF-dbG">
+                                                    <rect key="frame" x="338" y="16" width="30" height="25"/>
+                                                    <color key="tintColor" systemColor="systemCyanColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="Hsw-zw-ZfO"/>
+                                                        <constraint firstAttribute="height" constant="30" id="Qit-J3-pAy"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="oWQ-Go-D1q" secondAttribute="trailing" id="0Rn-Tw-Bgp"/>
@@ -114,6 +122,8 @@
                                                 <constraint firstItem="FMP-aJ-Y8N" firstAttribute="top" secondItem="oWQ-Go-D1q" secondAttribute="bottom" constant="8" id="YHY-YY-pWh"/>
                                                 <constraint firstItem="6af-xP-vUm" firstAttribute="leading" secondItem="ukH-WQ-x6A" secondAttribute="trailing" constant="8" id="aHW-xQ-Rnp"/>
                                                 <constraint firstItem="FMP-aJ-Y8N" firstAttribute="leading" secondItem="q5T-eE-KeL" secondAttribute="leadingMargin" id="i3O-p7-nyY"/>
+                                                <constraint firstItem="aWH-aF-dbG" firstAttribute="centerY" secondItem="6af-xP-vUm" secondAttribute="centerY" id="idG-wG-P1O"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="aWH-aF-dbG" secondAttribute="trailing" constant="5" id="tDr-Bt-fYE"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6af-xP-vUm" secondAttribute="trailing" constant="20" symbolic="YES" id="u1G-Rh-atJ"/>
                                                 <constraint firstItem="oWQ-Go-D1q" firstAttribute="top" secondItem="ukH-WQ-x6A" secondAttribute="bottom" constant="8" id="ufc-ia-vMi"/>
                                                 <constraint firstAttribute="bottom" secondItem="FMP-aJ-Y8N" secondAttribute="bottom" constant="3" id="ymM-Dt-tWe"/>
@@ -124,6 +134,7 @@
                                             <outlet property="begeniCountLabel" destination="uig-Qf-6pf" id="BXG-es-edl"/>
                                             <outlet property="begeniImage" destination="loi-Op-122" id="grz-DU-0uk"/>
                                             <outlet property="eklenmeTarihiLabel" destination="6af-xP-vUm" id="kWh-jf-xwl"/>
+                                            <outlet property="imgSecenekler" destination="aWH-aF-dbG" id="PaH-Z9-6fP"/>
                                             <outlet property="kullaniciAdiLabel" destination="ukH-WQ-x6A" id="FOm-Kk-61l"/>
                                             <outlet property="lblYorumSayisi" destination="V6n-64-ELa" id="ZOs-kS-6gk"/>
                                             <outlet property="yorumText" destination="oWQ-Go-D1q" id="Jnj-Fn-YEm"/>
@@ -239,11 +250,21 @@
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hzo-ND-XAJ">
+                                                    <rect key="frame" x="338" y="19" width="30" height="25"/>
+                                                    <color key="tintColor" systemColor="systemCyanColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="KeX-Dg-wIe"/>
+                                                        <constraint firstAttribute="height" constant="30" id="j5s-2j-bEd"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zQs-hX-FjR" firstAttribute="leading" secondItem="Y7f-1t-m4U" secondAttribute="leadingMargin" id="3cr-vH-J7B"/>
                                                 <constraint firstItem="zQs-hX-FjR" firstAttribute="top" secondItem="Y7f-1t-m4U" secondAttribute="topMargin" constant="8" id="4Ua-A9-jSI"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QLJ-21-zRt" secondAttribute="trailing" id="4nF-pL-OUq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="hzo-ND-XAJ" secondAttribute="trailing" constant="5" id="FLk-qa-A22"/>
+                                                <constraint firstItem="hzo-ND-XAJ" firstAttribute="centerY" secondItem="N6O-15-u5a" secondAttribute="centerY" id="Mk7-zs-bgb"/>
                                                 <constraint firstItem="QLJ-21-zRt" firstAttribute="leading" secondItem="Y7f-1t-m4U" secondAttribute="leadingMargin" id="OpY-SN-mKG"/>
                                                 <constraint firstItem="QLJ-21-zRt" firstAttribute="top" secondItem="zQs-hX-FjR" secondAttribute="bottom" constant="10" id="SBs-a2-0af"/>
                                                 <constraint firstItem="N6O-15-u5a" firstAttribute="leading" secondItem="zQs-hX-FjR" secondAttribute="trailing" constant="15" id="nVm-Ap-3qu"/>
@@ -252,6 +273,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="imgSecenekler" destination="hzo-ND-XAJ" id="SQj-Es-fYB"/>
                                             <outlet property="lblKullaniciAdi" destination="zQs-hX-FjR" id="Zyk-IU-cLs"/>
                                             <outlet property="lblTarih" destination="N6O-15-u5a" id="U7u-n4-V0D"/>
                                             <outlet property="lblYorumText" destination="QLJ-21-zRt" id="5eB-ms-1XL"/>
@@ -589,6 +611,7 @@
     </scenes>
     <resources>
         <image name="lasso" catalog="system" width="128" height="121"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">

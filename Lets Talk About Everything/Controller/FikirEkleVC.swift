@@ -44,7 +44,8 @@ class FikirEkleVC: UIViewController {
          Yorum_Sayisi : 0,
          Fikir_Text : fikirText,
          Eklenme_Tarihi : FieldValue.serverTimestamp(),
-         Kullanici_Adi : kullaniciAdi
+         Kullanici_Adi : kullaniciAdi,
+        KULLANICI_ID : Auth.auth().currentUser?.uid ?? ""
                                                                     ]
                                                                  
         ) { hata in

@@ -12,11 +12,15 @@ class Yorum {
     private(set) var kullaniciAdi : String!
     private(set) var eklenmeTarihi : Date!
     private(set) var yorumText : String!
+    private(set) var documentId : String!
+    private(set) var kullaniciId : String!
     
-    init(kullaniciAdi: String, eklenmeTarihi: Date, yorumText: String) {
+    init(kullaniciAdi: String, eklenmeTarihi: Date, yorumText: String, documentId : String, kullaniciId : String) {
         self.kullaniciAdi = kullaniciAdi
         self.eklenmeTarihi = eklenmeTarihi
         self.yorumText = yorumText
+        self.documentId = documentId
+        self.kullaniciId = kullaniciId
     }
     class func yorumlariGetir(snapshot : QuerySnapshot?) -> [Yorum] {
         var yorumlar = [Yorum]()
@@ -26,7 +30,9 @@ class Yorum {
             let yorumText = veri[YORUM_TEXT] as? String ?? ""
             let eklenmeTarihi = veri[Eklenme_Tarihi] as? Timestamp ?? Timestamp()
             let kullaniciAdi = veri[Kullanici_Adi] as? String ?? ""
-            let newYorum = Yorum(kullaniciAdi: kullaniciAdi, eklenmeTarihi: eklenmeTarihi.dateValue(), yorumText: yorumText)
+            let kullaniciId = veri[KULLANICI_ID] as? String ?? ""
+            let documentId = document.documentID
+            let newYorum = Yorum(kullaniciAdi: kullaniciAdi, eklenmeTarihi: eklenmeTarihi.dateValue(), yorumText: yorumText, documentId: documentId, kullaniciId: kullaniciId)
             yorumlar.append(newYorum)
         }
         return yorumlar

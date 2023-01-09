@@ -12,10 +12,11 @@ class YorumCell: UITableViewCell {
     @IBOutlet weak var lblKullaniciAdi: UILabel!
     @IBOutlet weak var lblTarih: UILabel!
     @IBOutlet weak var lblYorumText: UILabel!
+    @IBOutlet weak var imgSecenekler: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     func gorunumAyarla(yorum : Yorum) {

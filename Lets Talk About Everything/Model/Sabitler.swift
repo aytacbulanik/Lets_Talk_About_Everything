@@ -19,6 +19,8 @@ let Kullanici_Adi = "KullaniciAdi"
 let KULLANICILAR_REF = "Kullanicilar"
 let KULLANICIADI = "KullaniciAdi"
 let KULLANICIOLUSTURULMATARIHI = "KullaniciOlusturulmaTarihi"
+let KULLANICI_ID = "KullaniciId"
 
 let YORUMLAR_REF = "Yorumlar"
 let YORUM_TEXT = "YorumText"
+
