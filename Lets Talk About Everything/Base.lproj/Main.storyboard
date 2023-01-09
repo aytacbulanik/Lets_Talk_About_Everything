@@ -214,7 +214,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yorumCell" rowHeight="90" id="sFI-1l-Xi5" customClass="YorumCell" customModule="Lets_Talk_About_Everything" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yorumCell" rowHeight="90" id="sFI-1l-Xi5" customClass="YorumCell" customModule="Lets_Talk_About_Everything" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sFI-1l-Xi5" id="Y7f-1t-m4U">
@@ -222,19 +222,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kullanıcı Adı" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQs-hX-FjR">
-                                                    <rect key="frame" x="20" y="19" width="82.333333333333329" height="18"/>
+                                                    <rect key="frame" x="20" y="19" width="82.333333333333329" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tarih" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-15-u5a">
-                                                    <rect key="frame" x="117.33333333333333" y="19" width="33.333333333333329" height="18"/>
+                                                    <rect key="frame" x="117.33333333333333" y="22" width="33.333333333333329" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yorum Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLJ-21-zRt">
-                                                    <rect key="frame" x="20" y="47" width="353" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Yorum Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLJ-21-zRt">
+                                                    <rect key="frame" x="20" y="53" width="353" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -247,6 +247,7 @@
                                                 <constraint firstItem="QLJ-21-zRt" firstAttribute="leading" secondItem="Y7f-1t-m4U" secondAttribute="leadingMargin" id="OpY-SN-mKG"/>
                                                 <constraint firstItem="QLJ-21-zRt" firstAttribute="top" secondItem="zQs-hX-FjR" secondAttribute="bottom" constant="10" id="SBs-a2-0af"/>
                                                 <constraint firstItem="N6O-15-u5a" firstAttribute="leading" secondItem="zQs-hX-FjR" secondAttribute="trailing" constant="15" id="nVm-Ap-3qu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="QLJ-21-zRt" secondAttribute="bottom" constant="8" id="t5d-Jw-16C"/>
                                                 <constraint firstItem="N6O-15-u5a" firstAttribute="centerY" secondItem="zQs-hX-FjR" secondAttribute="centerY" id="teU-td-CDc"/>
                                             </constraints>
                                         </tableViewCellContentView>

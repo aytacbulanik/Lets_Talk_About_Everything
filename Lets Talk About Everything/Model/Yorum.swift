@@ -24,9 +24,9 @@ class Yorum {
         for document in snap.documents {
             let veri = document.data()
             let yorumText = veri[YORUM_TEXT] as? String ?? ""
-            let tarih = veri[Eklenme_Tarihi] as? Date ?? Date()
-            let kullaniciAdi = veri[KULLANICIADI] as? String ?? ""
-            let newYorum = Yorum(kullaniciAdi: kullaniciAdi, eklenmeTarihi: tarih, yorumText: yorumText)
+            let eklenmeTarihi = veri[Eklenme_Tarihi] as? Timestamp ?? Timestamp()
+            let kullaniciAdi = veri[Kullanici_Adi] as? String ?? ""
+            let newYorum = Yorum(kullaniciAdi: kullaniciAdi, eklenmeTarihi: eklenmeTarihi.dateValue(), yorumText: yorumText)
             yorumlar.append(newYorum)
         }
         return yorumlar
