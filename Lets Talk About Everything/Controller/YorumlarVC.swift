@@ -57,11 +57,11 @@ class YorumlarVC: UIViewController {
                 transaction.updateData([Yorum_Sayisi : eskiYorumSayisi + 1], forDocument: self.fikirRef)
                 let yeniYorumRef = self.firestore.collection(Fikirler_REF).document(self.secilenFikir.documentId).collection(YORUMLAR_REF).document()
                 
-                transaction.setData([YORUM_TEXT : yorumText,
+                /* transaction.setData([YORUM_TEXT : yorumText,
                                  Eklenme_Tarihi : FieldValue.serverTimestamp(),
                                    KULLANICIADI : self.kullaniciAdi,
                                    KULLANICI_ID : Auth.auth().currentUser?.uid ?? ""
-                                    ], forDocument: yeniYorumRef)
+                                    ], forDocument: yeniYorumRef)*/
                 
             } catch let hata {
                 print("hata meydana geldi" , hata.localizedDescription)
