@@ -86,7 +86,7 @@ extension YorumlarVC : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "yorumCell", for: indexPath) as? YorumCell {
-            cell.gorunumAyarla(yorum : yorumlar[indexPath.row])
+            cell.gorunumAyarla(yorum : yorumlar[indexPath.row], delegate : self)
             return cell
         }
         return UITableViewCell()

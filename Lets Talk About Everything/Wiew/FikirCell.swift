@@ -44,8 +44,8 @@ class FikirCell: UITableViewCell {
         if fikir.kullaniciId == Auth.auth().currentUser?.uid {
             imgSecenekler.isHidden = false
             imgSecenekler.isUserInteractionEnabled = true
-            
             let tap = UITapGestureRecognizer(target: self, action: #selector(imgFikirSeceneklerPressed))
+            imgSecenekler.addGestureRecognizer(tap)
         }
     }
     
