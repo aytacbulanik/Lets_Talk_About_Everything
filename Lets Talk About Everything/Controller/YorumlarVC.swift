@@ -92,3 +92,11 @@ extension YorumlarVC : UITableViewDelegate , UITableViewDataSource {
         return UITableViewCell()
     }
 }
+
+extension YorumlarVC : YorumDelegate {
+    func yorumDelegate(yorum: Yorum) {
+        print("yorum secildi : \(yorum.yorumText)")
+    }
+    
+    
+}
