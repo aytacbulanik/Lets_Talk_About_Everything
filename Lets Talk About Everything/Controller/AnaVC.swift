@@ -116,7 +116,7 @@ extension AnaVC : UITableViewDelegate , UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fikirCell", for: indexPath) as! FikirCell
-        cell.fikirCellUpdate(fikir: fikirler[indexPath.row])
+        cell.fikirCellUpdate(fikir: fikirler[indexPath.row], delegate: self)
         return cell
     }
     
@@ -124,7 +124,12 @@ extension AnaVC : UITableViewDelegate , UITableViewDataSource {
         performSegue(withIdentifier: "yorumSegue", sender: fikirler[indexPath.row])
     }
    
-    
-    
+}
+
+extension AnaVC : FikirDelegate {
+    func seceneklerFikirPressed(fikir: Fikir) {
+        print("Secilen Fikir : \(fikir.fikirText!)")
+    }
+
 }
 

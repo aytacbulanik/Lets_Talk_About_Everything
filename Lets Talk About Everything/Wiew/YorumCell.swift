@@ -20,7 +20,6 @@ class YorumCell: UITableViewCell {
     }
 
     func gorunumAyarla(yorum : Yorum) {
-        
         lblKullaniciAdi.text = yorum.kullaniciAdi
         lblYorumText.text = yorum.yorumText
         let dateFormatter = DateFormatter()
