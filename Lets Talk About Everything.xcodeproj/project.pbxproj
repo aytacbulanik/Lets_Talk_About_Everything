@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52C75AFF29729CF100843982 /* YorumDuzenleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C75AFE29729CF100843982 /* YorumDuzenleVC.swift */; };
 		B42ADA3C296400F9009E064F /* YorumlarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42ADA3B296400F9009E064F /* YorumlarVC.swift */; };
 		B42ADA3E29640D8C009E064F /* YorumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42ADA3D29640D8C009E064F /* YorumCell.swift */; };
 		B42ADA40296452C4009E064F /* Yorum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42ADA3F296452C4009E064F /* Yorum.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52C75AFE29729CF100843982 /* YorumDuzenleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YorumDuzenleVC.swift; sourceTree = "<group>"; };
 		B42ADA3B296400F9009E064F /* YorumlarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YorumlarVC.swift; sourceTree = "<group>"; };
 		B42ADA3D29640D8C009E064F /* YorumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YorumCell.swift; sourceTree = "<group>"; };
 		B42ADA3F296452C4009E064F /* Yorum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yorum.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				B4F2E1B829620333007E1601 /* GirisVC.swift */,
 				B4F2E1BA29620374007E1601 /* KayitOlVC.swift */,
 				B42ADA3B296400F9009E064F /* YorumlarVC.swift */,
+				52C75AFE29729CF100843982 /* YorumDuzenleVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4F2E1B929620333007E1601 /* GirisVC.swift in Sources */,
+				52C75AFF29729CF100843982 /* YorumDuzenleVC.swift in Sources */,
 				B42ADA40296452C4009E064F /* Yorum.swift in Sources */,
 				B4343A8C29599C7B0048CB3E /* AnaVC.swift in Sources */,
 				B4E07657295ED9E300D957A0 /* Sabitler.swift in Sources */,
