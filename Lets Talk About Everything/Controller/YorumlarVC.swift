@@ -47,7 +47,7 @@ class YorumlarVC: UIViewController {
     }
     
     @IBAction func yorumEklebuttonPressed(_ sender: Any) {
-        guard let yorumText = yorumTextField.text else {return}
+        guard let yorumText = yorumTextField.text , yorumTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != true else {return}
         firestore.runTransaction { transaction, errorPointer in
             let secilenFikirKayit : DocumentSnapshot
             do {

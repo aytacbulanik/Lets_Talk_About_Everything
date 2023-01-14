@@ -37,7 +37,7 @@ class FikirEkleVC: UIViewController {
     }
     
     @IBAction func paylasButtonPressed(_ sender: UIButton) {
-        guard let kullaniciAdi = txtKullaniciAdi.text , let fikirText = txtFikir.text else {return}
+        guard let kullaniciAdi = txtKullaniciAdi.text , let fikirText = txtFikir.text , txtFikir.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != true else {return}
         Firestore.firestore().collection(Fikirler_REF).addDocument(data:
         [Kategori : secilenKategori,
          Begeni_Sayisi : 0,
