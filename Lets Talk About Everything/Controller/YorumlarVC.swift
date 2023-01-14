@@ -95,7 +95,52 @@ extension YorumlarVC : UITableViewDelegate , UITableViewDataSource {
 
 extension YorumlarVC : YorumDelegate {
     func yorumDelegate(yorum: Yorum) {
-        print("yorum secildi : \(yorum.yorumText)")
+        let alert = UIAlertController(title: "Yorum Düzenle", message: "Yorumu düzenleyebilir yada silebilirsiniz.", preferredStyle: .actionSheet)
+        
+        let silButton = UIAlertAction(title: "Yorumu Sil", style: .default) { action in
+//            self.firestore.collection(Fikirler_REF).document(self.secilenFikir.documentId).collection(YORUMLAR_REF).document(yorum.documentId).delete(completion: {
+//                hata in
+//                print("Silme işlemi hatalı , \(hata?.localizedDescription)")
+//            })
+            
+            self.firestore.runTransaction { (transaction,hata) -> Any? in
+                let secilenFikirKayıt : DocumentSnapshot
+                
+                do {
+                    try secilenFikirKayıt = transaction.getDocument(self.firestore.collection(Fikirler_REF).document(self.secilenFikir.documentId))
+                }catch let hata as NSError {
+                    print(hata.localizedDescription)
+                    return nil
+                }
+                
+                guard let eskiYorumSayisi = (secilenFikirKayıt.data()?[Yorum_Sayisi] as? Int) else {return}
+                transaction.updateData([Yorum_Sayisi : eskiYorumSayisi - 1], forDocument: self.fikirRef)
+                let silinecekYorum = self.fikirRef.collection(YORUMLAR_REF).document(yorum.documentId)
+                transaction.deleteDocument(silinecekYorum)
+                return nil
+            } completion: { nesne, hata in
+                if let hata = hata {
+                    print("Yorumu silerken hata oluştu \(hata.localizedDescription)")
+                }
+            }
+
+            
+        }
+        
+        let duzenleButton = UIAlertAction(title: "Yorumu Düzenle", style: .default) { action in
+            
+        }
+        
+        let iptalButton = UIAlertAction(title: "İptal", style: .cancel)
+        alert.addAction(silButton)
+        alert.addAction(duzenleButton)
+        alert.addAction(iptalButton)
+        
+        present(alert, animated: true)
+        
+        
+        
+        
     }
     
     

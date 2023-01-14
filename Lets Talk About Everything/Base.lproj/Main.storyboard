@@ -156,7 +156,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="WELCOME" id="8Z5-0B-xSl">
-                        <barButtonItem key="leftBarButtonItem" title="ÇıkışYap" id="1eH-p0-ZXj">
+                        <barButtonItem key="leftBarButtonItem" title="Çıkış" id="1eH-p0-ZXj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="logOutButtonPressed:" destination="BYZ-38-t0r" id="CPi-oG-vdJ"/>
