@@ -16,6 +16,7 @@ class FikirEkleVC: UIViewController {
     @IBOutlet weak var btnPaylasOut: UIButton!
     var secilenKategori : String = Kategoriler.Eglence.rawValue
     let fikirText = "Lütfen Fikrinizi giriniz..."
+    var kullaniciAdi : String = "Misafir"
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +24,11 @@ class FikirEkleVC: UIViewController {
         btnPaylasOut.layer.cornerRadius = 8
         txtFikir.text = fikirText
         txtFikir.delegate = self
+        txtKullaniciAdi.isEnabled = false
+        if let adi = Auth.auth().currentUser?.displayName {
+            kullaniciAdi = adi
+            txtKullaniciAdi.text = kullaniciAdi
+        }
     }
     
 
@@ -37,7 +43,7 @@ class FikirEkleVC: UIViewController {
     }
     
     @IBAction func paylasButtonPressed(_ sender: UIButton) {
-        guard let kullaniciAdi = txtKullaniciAdi.text , let fikirText = txtFikir.text , txtFikir.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != true else {return}
+        guard let fikirText = txtFikir.text , txtFikir.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != true else {return}
         Firestore.firestore().collection(Fikirler_REF).addDocument(data:
         [Kategori : secilenKategori,
          Begeni_Sayisi : 0,
