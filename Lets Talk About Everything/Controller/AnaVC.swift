@@ -128,7 +128,17 @@ extension AnaVC : UITableViewDelegate , UITableViewDataSource {
 
 extension AnaVC : FikirDelegate {
     func seceneklerFikirPressed(fikir: Fikir) {
-        print("Secilen Fikir : \(fikir.fikirText!)")
+       
+        let alert  = UIAlertController(title: "Sil", message: "Paylaşımınızı silmek mi istiyorsunuz", preferredStyle: .actionSheet)
+        let silAction = UIAlertAction(title: "Paylaşımı Sil", style: .default) { action in
+            // fikir burada silinecek
+            
+        }
+        
+        let iptalAction = UIAlertAction(title: "İptal Et", style: .cancel)
+        alert.addAction(silAction)
+        alert.addAction(iptalAction)
+        present(alert, animated: true)
     }
 
 }
