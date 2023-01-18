@@ -17,17 +17,53 @@ class FikirCell: UITableViewCell {
     @IBOutlet weak var begeniImage: UIImageView!
     @IBOutlet weak var lblYorumSayisi: UILabel!
     @IBOutlet weak var imgSecenekler: UIImageView!
+    
     var secilenFikir : Fikir!
     var delegate : FikirDelegate?
+    let fireStore = Firestore.firestore()
+    var begeniler = [Begeni]()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(begeniGuncelle))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(imgBegeniTapped))
         begeniImage.addGestureRecognizer(tap)
         begeniImage.isUserInteractionEnabled = true
     }
-    @objc func begeniGuncelle() {
-        Firestore.firestore().collection(Fikirler_REF).document(secilenFikir.documentId!).setData([Begeni_Sayisi : secilenFikir.begeniSayisi + 1], merge: true)
+    
+    func begenileriGetir() {
+        let begeniSorgu = fireStore.collection(Fikirler_REF).document(secilenFikir.documentId).collection(BEGENI_REF).whereField(KULLANICI_ID, isEqualTo: Auth.auth().currentUser?.uid)
+        
+        begeniSorgu.getDocuments(completion: {(snapShot , hata) in
+            self.begeniler = Begeni.begenileriGetir(snapshot: snapShot)
+            
+            if self.begeniler.count > 0 {
+                // kullanıcı beğeni yapmış
+                self.imgSecenekler.image = UIImage(systemName: "star.fill")
+            }else {
+                // kullanıcı beğeni yapmış
+                self.imgSecenekler.image = UIImage(systemName: "star")
+            }
+        })
+    }
+    
+    @objc func imgBegeniTapped() {
+        fireStore.runTransaction { transaction, errorPointer in
+            
+            let secilenFkirKayit : DocumentSnapshot
+            
+            do {
+                try secilenFkirKayit = transaction.getDocument(self.fireStore.collection(Fikirler_REF).document(self.secilenFikir.documentId))
+            } catch let hata as NSError {
+                print("Beğenide hata oluştu \(hata.localizedDescription)")
+            }
+            secilenFkirKayit.data()
+            
+            
+        } completion: { nesne, hata in
+            <#code#>
+        }
+
     }
     
     func fikirCellUpdate (fikir : Fikir, delegate : FikirDelegate?) {
@@ -47,6 +83,7 @@ class FikirCell: UITableViewCell {
             let tap = UITapGestureRecognizer(target: self, action: #selector(imgFikirSeceneklerPressed))
             imgSecenekler.addGestureRecognizer(tap)
         }
+        
     }
     
     @objc func imgFikirSeceneklerPressed() {
