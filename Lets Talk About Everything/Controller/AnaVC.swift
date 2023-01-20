@@ -132,19 +132,29 @@ extension AnaVC : FikirDelegate {
         let alert  = UIAlertController(title: "Sil", message: "Paylaşımınızı silmek mi istiyorsunuz", preferredStyle: .actionSheet)
         let silAction = UIAlertAction(title: "Paylaşımı Sil", style: .default) { action in
             let yorumlarCollRef = Firestore.firestore().collection(Fikirler_REF).document(fikir.documentId).collection(YORUMLAR_REF)
-                        self.yorumlariSil(yorumCollection: yorumlarCollRef) { (hata) in
-                            if let hata = hata {
-                                debugPrint("tüm yorumları silerken hata oluştu : \(hata.localizedDescription)")
-                            }else {
-                                Firestore.firestore().collection(Fikirler_REF).document(fikir.documentId).delete { (hata) in
+            let begenilerCollectionRef = Firestore.firestore().collection(Fikirler_REF).document(fikir.documentId).collection(BEGENI_REF)
+                        
+            self.tumCollectionsSil(collectionRef: begenilerCollectionRef) { hata in
+                if let hata = hata {
+                    print("Hata : \(hata.localizedDescription)")
+                }else {
+                    self.tumCollectionsSil(collectionRef: yorumlarCollRef) { (hata) in
                                     if let hata = hata {
-                                        debugPrint("bu fikri silerken hata oluştu : \(hata.localizedDescription)")
+                                        debugPrint("tüm yorumları silerken hata oluştu : \(hata.localizedDescription)")
                                     }else {
-                                        alert.dismiss(animated: true, completion: nil)
+                                        Firestore.firestore().collection(Fikirler_REF).document(fikir.documentId).delete { (hata) in
+                                            if let hata = hata {
+                                                debugPrint("bu fikri silerken hata oluştu : \(hata.localizedDescription)")
+                                            }else {
+                                                alert.dismiss(animated: true, completion: nil)
+                                            }
+                                        }
                                     }
                                 }
-                            }
-                        }
+                }
+            }
+            
+            
 
             
         }
@@ -155,9 +165,9 @@ extension AnaVC : FikirDelegate {
         present(alert, animated: true)
     }
     
-    func yorumlariSil(yorumCollection : CollectionReference , silinecekKayitSayisi : Int = 100 , completion : @escaping (Error?) -> ()) {
+    func tumCollectionsSil(collectionRef : CollectionReference , silinecekKayitSayisi : Int = 100 , completion : @escaping (Error?) -> ()) {
             
-            yorumCollection.limit(to: silinecekKayitSayisi).getDocuments(completion: {(kayitSetleri , hata) in
+        collectionRef.limit(to: silinecekKayitSayisi).getDocuments(completion: {(kayitSetleri , hata) in
                 guard let kayitSetleri = kayitSetleri else {
                     completion(hata)
                     return
@@ -166,14 +176,14 @@ extension AnaVC : FikirDelegate {
                     completion(nil)
                     return
                 }
-                let batch = yorumCollection.firestore.batch() //birden fazla write işlemi yapmak için bunu kullancağız.
+                let batch = collectionRef.firestore.batch() //birden fazla write işlemi yapmak için bunu kullancağız.
                 kayitSetleri.documents.forEach { batch.deleteDocument($0.reference)
                 }
                 batch.commit { batchHata in
                     if let hata = batchHata {
                         completion(hata)
                     } else {
-                        self.yorumlariSil(yorumCollection: yorumCollection, silinecekKayitSayisi: silinecekKayitSayisi, completion: completion)
+                        self.tumCollectionsSil(collectionRef: collectionRef, silinecekKayitSayisi: silinecekKayitSayisi, completion: completion)
                     }
                 }
             })

@@ -48,20 +48,33 @@ class FikirCell: UITableViewCell {
     }
     
     @objc func imgBegeniTapped() {
-        fireStore.runTransaction { transaction, errorPointer in
+        fireStore.runTransaction { (transaction, errorPointer) -> Any? in
             
-            let secilenFkirKayit : DocumentSnapshot
+            var secilenFikirKayit : DocumentSnapshot? = nil
             
             do {
-                try secilenFkirKayit = transaction.getDocument(self.fireStore.collection(Fikirler_REF).document(self.secilenFikir.documentId))
+                try secilenFikirKayit = transaction.getDocument(self.fireStore.collection(Fikirler_REF).document(self.secilenFikir.documentId))
             } catch let hata as NSError {
                 print("Beğenide hata oluştu \(hata.localizedDescription)")
             }
-            secilenFkirKayit.data()
             
-            
+            guard let eskiBegeniSayisi = (secilenFikirKayit?.data()?[Begeni_Sayisi] as? Int) else {return nil}
+            let secilenFikirRef = self.fireStore.collection(Fikirler_REF).document(self.secilenFikir.documentId)
+            if self.begeniler.count > 0 {
+                transaction.updateData([Begeni_Sayisi : eskiBegeniSayisi-1], forDocument: secilenFikirRef)
+                let eskiBegeniRef = self.fireStore.collection(Fikirler_REF).document(self.secilenFikir.documentId).collection(BEGENI_REF).document(self.begeniler[0].documentId)
+                transaction.deleteDocument(eskiBegeniRef)
+            }else {
+                transaction.updateData([Begeni_Sayisi : eskiBegeniSayisi+1], forDocument: secilenFikirRef)
+                
+                let yeniBegeniRef = self.fireStore.collection(Fikirler_REF).document(self.secilenFikir.documentId).collection(BEGENI_REF).document()
+                transaction.setData([KULLANICIADI : Auth.auth().currentUser?.uid ?? ""], forDocument: yeniBegeniRef)
+            }
+            return nil
         } completion: { nesne, hata in
-            <#code#>
+            if let hata = hata {
+                print("\(hata.localizedDescription)")
+            }
         }
 
     }
