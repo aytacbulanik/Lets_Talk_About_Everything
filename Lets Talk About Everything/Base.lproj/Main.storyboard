@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YbY-I9-h9j">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -37,6 +36,9 @@
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="e0Y-4e-UkW" kind="show" id="4rW-ya-PPG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbP-97-IdM">
                                         <rect key="frame" x="0.0" y="60" width="353" height="50"/>
@@ -46,6 +48,9 @@
                                             <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="gPF-36-oER" kind="show" id="6LA-Ao-Txi"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -71,6 +76,38 @@
             </objects>
             <point key="canvasLocation" x="808.39694656488541" y="-631.69014084507046"/>
         </scene>
+        <!--RegisterVC-->
+        <scene sceneID="qMl-lv-B0l">
+            <objects>
+                <viewController id="e0Y-4e-UkW" customClass="RegisterVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SEu-uU-gew">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ZTb-OA-qlF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mvd-4O-cUl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sge-1V-rU5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756" y="-968"/>
+        </scene>
+        <!--Log InVC-->
+        <scene sceneID="FOI-6w-Rjv">
+            <objects>
+                <viewController id="gPF-36-oER" customClass="LogInVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kXo-Rl-S02">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="m3p-3A-I4t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sK7-3J-uzE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ypa-oq-c6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="-278"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pE-0Z-Ltx">
             <objects>
@@ -79,6 +116,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UkX-Vu-fOc">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" systemColor="systemMintColor"/>
+                        <color key="barTintColor" systemColor="systemMintColor"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" systemColor="systemMintColor"/>
                         </textAttributes>
