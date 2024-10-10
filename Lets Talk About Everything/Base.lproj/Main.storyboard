@@ -76,21 +76,87 @@
             </objects>
             <point key="canvasLocation" x="808.39694656488541" y="-631.69014084507046"/>
         </scene>
-        <!--RegisterVC-->
+        <!--Register-->
         <scene sceneID="qMl-lv-B0l">
             <objects>
                 <viewController id="e0Y-4e-UkW" customClass="RegisterVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SEu-uU-gew">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Ya-3B-fWm">
+                                <rect key="frame" x="40" y="356" width="313" height="140"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please write e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fwK-W4-gT1">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="vnr-DG-e3c"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please write password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rca-xt-eHN">
+                                        <rect key="frame" x="0.0" y="50" width="313" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please write password again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TRq-M4-Elp">
+                                        <rect key="frame" x="0.0" y="100" width="313" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APz-SK-00K">
+                                <rect key="frame" x="40" y="536" width="313" height="50"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Igv-Wo-VQt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="registerButtonPressed:" destination="e0Y-4e-UkW" eventType="touchUpInside" id="Kpq-mk-V4h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, Fields write corretly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEq-jO-JQr">
+                                <rect key="frame" x="72.666666666666686" y="163" width="248" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gR8-35-QPF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ZTb-OA-qlF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9Ya-3B-fWm" firstAttribute="centerY" secondItem="SEu-uU-gew" secondAttribute="centerY" id="3ah-Xx-Jx4"/>
+                            <constraint firstItem="APz-SK-00K" firstAttribute="top" secondItem="9Ya-3B-fWm" secondAttribute="bottom" constant="40" id="BS1-FV-IZq"/>
+                            <constraint firstItem="9Ya-3B-fWm" firstAttribute="leading" secondItem="ZTb-OA-qlF" secondAttribute="leading" constant="40" id="L8z-18-5rN"/>
+                            <constraint firstItem="APz-SK-00K" firstAttribute="centerX" secondItem="SEu-uU-gew" secondAttribute="centerX" id="P1N-kA-kLJ"/>
+                            <constraint firstItem="lEq-jO-JQr" firstAttribute="centerX" secondItem="SEu-uU-gew" secondAttribute="centerX" id="TDH-HM-qIc"/>
+                            <constraint firstItem="ZTb-OA-qlF" firstAttribute="trailing" secondItem="APz-SK-00K" secondAttribute="trailing" constant="40" id="TFN-g9-bQm"/>
+                            <constraint firstItem="lEq-jO-JQr" firstAttribute="top" secondItem="ZTb-OA-qlF" secondAttribute="top" constant="60" id="cdR-mj-vN1"/>
+                            <constraint firstItem="APz-SK-00K" firstAttribute="leading" secondItem="ZTb-OA-qlF" secondAttribute="leading" constant="40" id="eVr-pc-WJJ"/>
+                            <constraint firstItem="ZTb-OA-qlF" firstAttribute="trailing" secondItem="9Ya-3B-fWm" secondAttribute="trailing" constant="40" id="eYU-nf-JVD"/>
+                            <constraint firstItem="9Ya-3B-fWm" firstAttribute="centerX" secondItem="SEu-uU-gew" secondAttribute="centerX" id="r2P-2Y-gS8"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mvd-4O-cUl"/>
+                    <navigationItem key="navigationItem" title="Register" id="mvd-4O-cUl"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="fwK-W4-gT1" id="5B0-lS-dmF"/>
+                        <outlet property="passwordAgainTextField" destination="TRq-M4-Elp" id="qGe-x6-mvs"/>
+                        <outlet property="passwordTextField" destination="rca-xt-eHN" id="zeY-c0-YEO"/>
+                        <outlet property="registerButtonOut" destination="APz-SK-00K" id="6Ho-eg-baY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sge-1V-rU5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="-968"/>
+            <point key="canvasLocation" x="1754.9618320610687" y="-968.30985915492965"/>
         </scene>
         <!--Log InVC-->
         <scene sceneID="FOI-6w-Rjv">
