@@ -6,16 +6,33 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LogInVC: UIViewController {
 
+    @IBOutlet weak var logInButtonOut: UIButton!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        logInButtonOut.layer.cornerRadius = 10
     }
     
 
-   
+    @IBAction func logInButtonPressed(_ sender: UIButton) {
+        guard let email = emailTextField.text, !email.isEmpty else { return }
+        guard let password = passwordTextField.text, !password.isEmpty else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error {
+                print(error.localizedDescription)
+                return
+            }
+            print(result?.user.uid ?? "no user")
+        }
+        
+    }
+    
 
 }

@@ -174,10 +174,61 @@
                     <view key="view" contentMode="scaleToFill" id="kXo-Rl-S02">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-Os-pzj">
+                                <rect key="frame" x="40" y="381" width="313" height="90"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please write e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QSD-EC-Vuj">
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="dwK-8N-2O7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please write password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W8v-fW-LM5">
+                                        <rect key="frame" x="0.0" y="50" width="313" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZx-IS-dd0">
+                                <rect key="frame" x="40" y="491" width="313" height="50"/>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="uxq-JB-ivq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log In">
+                                    <fontDescription key="titleFontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logInButtonPressed:" destination="gPF-36-oER" eventType="touchUpInside" id="MEp-1k-VPb"/>
+                                    <action selector="registerButtonPressed:" destination="e0Y-4e-UkW" eventType="touchUpInside" id="Aaq-3p-opq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="m3p-3A-I4t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M4t-Os-pzj" firstAttribute="centerY" secondItem="kXo-Rl-S02" secondAttribute="centerY" id="31O-1A-if6"/>
+                            <constraint firstItem="M4t-Os-pzj" firstAttribute="centerX" secondItem="kXo-Rl-S02" secondAttribute="centerX" id="9y8-UC-dTv"/>
+                            <constraint firstItem="m3p-3A-I4t" firstAttribute="trailing" secondItem="M4t-Os-pzj" secondAttribute="trailing" constant="40" id="AYu-7M-5ht"/>
+                            <constraint firstItem="M4t-Os-pzj" firstAttribute="leading" secondItem="m3p-3A-I4t" secondAttribute="leading" constant="40" id="CP6-uY-5gf"/>
+                            <constraint firstItem="vZx-IS-dd0" firstAttribute="top" secondItem="M4t-Os-pzj" secondAttribute="bottom" constant="20" id="Esh-5k-etz"/>
+                            <constraint firstItem="vZx-IS-dd0" firstAttribute="centerX" secondItem="kXo-Rl-S02" secondAttribute="centerX" id="IzZ-zA-Ovk"/>
+                            <constraint firstItem="m3p-3A-I4t" firstAttribute="trailing" secondItem="vZx-IS-dd0" secondAttribute="trailing" constant="40" id="V9s-6u-KMq"/>
+                            <constraint firstItem="vZx-IS-dd0" firstAttribute="leading" secondItem="m3p-3A-I4t" secondAttribute="leading" constant="40" id="qKl-GS-fiT"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="sK7-3J-uzE"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="QSD-EC-Vuj" id="GwF-L9-wWj"/>
+                        <outlet property="logInButtonOut" destination="vZx-IS-dd0" id="4GJ-bf-P1W"/>
+                        <outlet property="passwordTextField" destination="W8v-fW-LM5" id="qUp-ht-6fX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypa-oq-c6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
