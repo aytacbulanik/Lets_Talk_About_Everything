@@ -54,13 +54,22 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="8Q4-cS-5X7">
+                                <rect key="frame" x="20" y="103" width="353" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="Jnw-Ou-X1I"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="05f-dQ-VBl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Z0A-12-ekZ" firstAttribute="centerY" secondItem="cJ8-Ff-qkO" secondAttribute="centerY" id="7O9-t6-Q9M"/>
+                            <constraint firstItem="8Q4-cS-5X7" firstAttribute="leading" secondItem="05f-dQ-VBl" secondAttribute="leading" constant="20" id="BmZ-pf-Vct"/>
+                            <constraint firstItem="05f-dQ-VBl" firstAttribute="trailing" secondItem="8Q4-cS-5X7" secondAttribute="trailing" constant="20" id="Ulg-YQ-d7E"/>
                             <constraint firstItem="Ok9-uh-E7D" firstAttribute="leading" secondItem="05f-dQ-VBl" secondAttribute="leading" constant="20" id="YYw-hY-w76"/>
                             <constraint firstItem="05f-dQ-VBl" firstAttribute="bottom" secondItem="Ok9-uh-E7D" secondAttribute="bottom" constant="70" id="b5Q-So-IRK"/>
+                            <constraint firstItem="8Q4-cS-5X7" firstAttribute="top" secondItem="05f-dQ-VBl" secondAttribute="top" id="iJG-LL-aoi"/>
                             <constraint firstItem="Z0A-12-ekZ" firstAttribute="centerX" secondItem="cJ8-Ff-qkO" secondAttribute="centerX" id="jUU-mz-nTg"/>
                             <constraint firstItem="05f-dQ-VBl" firstAttribute="trailing" secondItem="Ok9-uh-E7D" secondAttribute="trailing" constant="20" id="ppH-pk-rGC"/>
                         </constraints>
@@ -199,11 +208,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="about" width="341.33334350585938" height="341.33334350585938"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
-            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

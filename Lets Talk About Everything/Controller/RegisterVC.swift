@@ -21,12 +21,19 @@ class RegisterVC: UIViewController {
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        Auth.auth().createUser(withEmail: "ayt@gmail.com", password: "112233") { AuthDataResult, error in
+        guard let userName = emailTextField.text, let password = passwordTextField.text, let passwordAgain = passwordAgainTextField.text else { return }
+        if password != passwordAgain {
+            print("Passwords do not match")
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: userName, password: password) { AuthDataResult, error in
             if error != nil {
                 if let error {
                     print(error.localizedDescription)
                 }
             }
+            
         }
     }
     
