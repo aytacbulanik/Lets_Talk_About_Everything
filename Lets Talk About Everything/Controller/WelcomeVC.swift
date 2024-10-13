@@ -19,8 +19,19 @@ class WelcomeVC: UIViewController {
         super.viewDidLoad()
         logInButtonOut.layer.cornerRadius = 10
         registerButtonOut.layer.cornerRadius = 10
-       title = "LTAE"
-       let titleText = "Lets Talk About Everything"
+        title = "LTAE"
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getLTEAWords()
+    }
+    
+    
+    func getLTEAWords() {
+        charIndex = 0.0
+        titleLabel.text = ""
+        let titleText = "Lets Talk About Everything"
         
         for letter in titleText {
             Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { timer in
@@ -28,10 +39,6 @@ class WelcomeVC: UIViewController {
             }
             charIndex += 1
         }
-        
     }
     
-
-   
-
 }

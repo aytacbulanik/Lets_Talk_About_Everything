@@ -33,6 +33,7 @@ class RegisterVC: UIViewController {
                     print(error.localizedDescription)
                 }
             }
+            self.navigationController?.popToRootViewController(animated: true)
             
         }
     }
