@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ChatVC: UIViewController {
 
@@ -13,9 +14,20 @@ class ChatVC: UIViewController {
         super.viewDidLoad()
 
         title = "ChatVC"
+        navigationItem.hidesBackButton = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logOutFunc))
     }
     
-
+    @objc func logOutFunc() {
+        let user = Auth.auth()
+        do {
+            try user.signOut()
+        } catch {
+            print(error.localizedDescription)
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
    
 
 }
