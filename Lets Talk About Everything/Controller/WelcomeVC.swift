@@ -20,7 +20,7 @@ class WelcomeVC: UIViewController {
         super.viewDidLoad()
         logInButtonOut.layer.cornerRadius = 10
         registerButtonOut.layer.cornerRadius = 10
-        title = "LTAE"
+        title = Constants.appShortName
         
     }
     
@@ -32,7 +32,7 @@ class WelcomeVC: UIViewController {
     func controlCurrentUser() {
         if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ChatVCGo")
+            let vc = storyboard.instantiateViewController(withIdentifier: Constants.chatVC)
             navigationController?.pushViewController(vc, animated: true)
         }
     }

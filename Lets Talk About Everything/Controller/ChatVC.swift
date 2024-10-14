@@ -13,7 +13,7 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "ChatVC"
+        title = Constants.appShortName
         navigationItem.hidesBackButton = true
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logOutFunc))
@@ -23,10 +23,11 @@ class ChatVC: UIViewController {
         let user = Auth.auth()
         do {
             try user.signOut()
+            navigationController?.popToRootViewController(animated: true)
         } catch {
             print(error.localizedDescription)
         }
-        navigationController?.popToRootViewController(animated: true)
+        
     }
    
 

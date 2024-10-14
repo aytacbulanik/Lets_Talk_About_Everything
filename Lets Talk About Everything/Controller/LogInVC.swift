@@ -29,7 +29,7 @@ class LogInVC: UIViewController {
                 print(error.localizedDescription)
                 return
             }
-            self.performSegue(withIdentifier: "ToChatSegue", sender: self)
+            self.performSegue(withIdentifier: Constants.logInSegue, sender: self)
         }
         
     }
