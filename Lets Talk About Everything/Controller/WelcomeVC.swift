@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class WelcomeVC: UIViewController {
 
@@ -25,8 +26,16 @@ class WelcomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         getLTEAWords()
+        controlCurrentUser()
     }
     
+    func controlCurrentUser() {
+        if Auth.auth().currentUser != nil {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ChatVCGo")
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     func getLTEAWords() {
         charIndex = 0.0

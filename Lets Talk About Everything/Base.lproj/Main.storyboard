@@ -167,6 +167,22 @@
             </objects>
             <point key="canvasLocation" x="1754.9618320610687" y="-968.30985915492965"/>
         </scene>
+        <!--Chat VC-->
+        <scene sceneID="uRg-UN-xrA">
+            <objects>
+                <viewController storyboardIdentifier="ChatVCGo" id="dNb-zu-OXq" customClass="ChatVC" customModule="Lets_Talk_About_Everything" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T5Q-GW-Y9P">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lni-dN-Kgd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Chat VC" id="Ha0-aC-WWS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9qY-NZ-kEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2932" y="-546"/>
+        </scene>
         <!--Log InVC-->
         <scene sceneID="FOI-6w-Rjv">
             <objects>
@@ -228,6 +244,7 @@
                         <outlet property="emailTextField" destination="QSD-EC-Vuj" id="GwF-L9-wWj"/>
                         <outlet property="logInButtonOut" destination="vZx-IS-dd0" id="4GJ-bf-P1W"/>
                         <outlet property="passwordTextField" destination="W8v-fW-LM5" id="qUp-ht-6fX"/>
+                        <segue destination="dNb-zu-OXq" kind="show" identifier="ToChatSegue" id="KWu-ie-did"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ypa-oq-c6F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
