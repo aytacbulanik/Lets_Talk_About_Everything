@@ -10,12 +10,14 @@ import FirebaseAuth
 
 class ChatVC: UIViewController {
 
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.delegate = self
+        tableView.dataSource = self
         title = Constants.appShortName
         navigationItem.hidesBackButton = true
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logOutFunc))
     }
     
@@ -27,8 +29,26 @@ class ChatVC: UIViewController {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
    
+    @IBAction func sendMessageButton(_ sender: UIButton) {
+        
+    }
+    
+}
 
+extension ChatVC : UITableViewDataSource , UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.chatIdentyfire, for: indexPath)
+        cell.textLabel?.text = "Hello World"
+        return cell
+    }
+    
+    
+    
+    
 }

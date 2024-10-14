@@ -9,4 +9,6 @@ struct Constants {
     static let chatVC = "ChatVCGo"
     static let logInSegue = "ToChatSegue"
     static let appShortName = "LTAE"
+    static let appLongName = "Lets Talk About Everything"
+    static let chatIdentyfire = "chatCell"
 }

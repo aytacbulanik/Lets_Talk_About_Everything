@@ -40,7 +40,7 @@ class WelcomeVC: UIViewController {
     func getLTEAWords() {
         charIndex = 0.0
         titleLabel.text = ""
-        let titleText = "Lets Talk About Everything"
+        let titleText = Constants.appLongName
         
         for letter in titleText {
             Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { timer in

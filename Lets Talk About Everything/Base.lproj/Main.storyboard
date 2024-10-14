@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -174,14 +175,82 @@
                     <view key="view" contentMode="scaleToFill" id="T5Q-GW-Y9P">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5hb-iX-nHV">
+                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zmI-6j-QgQ">
+                                        <rect key="frame" x="10" y="10" width="323" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="2r2-ce-fx1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xTA-tW-yCI">
+                                        <rect key="frame" x="343" y="10" width="40" height="40"/>
+                                        <color key="backgroundColor" systemColor="systemMintColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="lbI-oA-XbN"/>
+                                            <constraint firstAttribute="height" constant="40" id="mNs-Iw-oif"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <imageReference key="image" image="paperplane.fill" catalog="system" symbolScale="large"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendMessageButton:" destination="dNb-zu-OXq" eventType="touchUpInside" id="1mo-2b-hVU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="xTA-tW-yCI" secondAttribute="trailing" constant="10" id="6dS-iI-Hmx"/>
+                                    <constraint firstItem="xTA-tW-yCI" firstAttribute="centerY" secondItem="5hb-iX-nHV" secondAttribute="centerY" id="8Q8-Xe-Cbw"/>
+                                    <constraint firstItem="zmI-6j-QgQ" firstAttribute="leading" secondItem="5hb-iX-nHV" secondAttribute="leading" constant="10" id="RsW-iZ-Sdx"/>
+                                    <constraint firstItem="zmI-6j-QgQ" firstAttribute="centerY" secondItem="5hb-iX-nHV" secondAttribute="centerY" id="ZIU-Vd-6jV"/>
+                                    <constraint firstItem="xTA-tW-yCI" firstAttribute="leading" secondItem="zmI-6j-QgQ" secondAttribute="trailing" constant="10" id="bW7-8m-r9g"/>
+                                    <constraint firstAttribute="height" constant="60" id="nym-XW-fFt"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D6H-f6-Fj4">
+                                <rect key="frame" x="0.0" y="103" width="393" height="655"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatCell" id="31c-jb-WCW">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="31c-jb-WCW" id="WIu-R9-g9Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lni-dN-Kgd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D6H-f6-Fj4" firstAttribute="leading" secondItem="lni-dN-Kgd" secondAttribute="leading" id="9nX-5R-8dx"/>
+                            <constraint firstItem="5hb-iX-nHV" firstAttribute="top" secondItem="D6H-f6-Fj4" secondAttribute="bottom" id="Fnk-kb-eEc"/>
+                            <constraint firstItem="5hb-iX-nHV" firstAttribute="trailing" secondItem="lni-dN-Kgd" secondAttribute="trailing" id="GPz-jd-N2I"/>
+                            <constraint firstItem="lni-dN-Kgd" firstAttribute="trailing" secondItem="D6H-f6-Fj4" secondAttribute="trailing" id="UHJ-96-9MA"/>
+                            <constraint firstItem="5hb-iX-nHV" firstAttribute="leading" secondItem="lni-dN-Kgd" secondAttribute="leading" id="izn-Kx-fof"/>
+                            <constraint firstItem="D6H-f6-Fj4" firstAttribute="top" secondItem="lni-dN-Kgd" secondAttribute="top" id="pZq-vO-pCd"/>
+                            <constraint firstItem="5hb-iX-nHV" firstAttribute="bottom" secondItem="lni-dN-Kgd" secondAttribute="bottom" id="tLa-Fl-UMo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat VC" id="Ha0-aC-WWS"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="zmI-6j-QgQ" id="Phk-Lb-Wvm"/>
+                        <outlet property="tableView" destination="D6H-f6-Fj4" id="PUs-OI-fEL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9qY-NZ-kEB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2932" y="-546"/>
+            <point key="canvasLocation" x="2930.5343511450383" y="-546.47887323943667"/>
         </scene>
         <!--Log InVC-->
         <scene sceneID="FOI-6w-Rjv">
@@ -277,6 +346,7 @@
     </scenes>
     <resources>
         <image name="about" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
