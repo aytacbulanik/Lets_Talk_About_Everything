@@ -12,6 +12,12 @@ class ChatVC: UIViewController {
 
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
+    var messages : [Message] = [
+        Message(sender: "ayt@gmail.com", body: "Hello"),
+        Message(sender: "cyd@gmail.com", body: "Hi"),
+        Message(sender: "ayt@gmail.com", body: "Whats up!")
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -39,12 +45,13 @@ class ChatVC: UIViewController {
 
 extension ChatVC : UITableViewDataSource , UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.chatIdentyfire, for: indexPath)
-        cell.textLabel?.text = "Hello World"
+        let message = messages[indexPath.row]
+        cell.textLabel?.text = message.body
         return cell
     }
     
