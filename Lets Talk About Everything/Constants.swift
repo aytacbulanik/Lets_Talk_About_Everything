@@ -11,4 +11,6 @@ struct Constants {
     static let appShortName = "LTAE"
     static let appLongName = "Lets Talk About Everything"
     static let chatIdentyfire = "chatCell"
+    static let cellNibName = "MessageCell"
+    static let cellIdentifier = "MessageCell"
 }

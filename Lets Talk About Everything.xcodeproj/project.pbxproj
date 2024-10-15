@@ -20,6 +20,8 @@
 		B4836D762CB7257000BE729F /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = B4836D752CB7257000BE729F /* FirebaseFunctions */; };
 		B4836D782CB7257000BE729F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = B4836D772CB7257000BE729F /* FirebaseMessaging */; };
 		B4836D7A2CB7257000BE729F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B4836D792CB7257000BE729F /* FirebaseStorage */; };
+		B4A0BD082CBEF13C001EBA9D /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A0BD072CBEF13C001EBA9D /* MessageCell.xib */; };
+		B4A0BD092CBEF13C001EBA9D /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A0BD062CBEF13C001EBA9D /* MessageCell.swift */; };
 		B4B702C52CBD99C0002AA975 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B702C42CBD99C0002AA975 /* Constants.swift */; };
 		B4B702C72CBDAC40002AA975 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B702C62CBDAC40002AA975 /* Message.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +35,8 @@
 		B4343A9329599C7D0048CB3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4343A9529599C7D0048CB3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4836D6A2CB724C700BE729F /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B4A0BD062CBEF13C001EBA9D /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		B4A0BD072CBEF13C001EBA9D /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		B4B702C42CBD99C0002AA975 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B4B702C62CBDAC40002AA975 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,9 +84,8 @@
 			children = (
 				B4343A8729599C7B0048CB3E /* AppDelegate.swift */,
 				B4343A8929599C7B0048CB3E /* SceneDelegate.swift */,
-				B4343A8D29599C7B0048CB3E /* Main.storyboard */,
+				B4A0BD052CBEF09A001EBA9D /* View */,
 				B4343A9029599C7D0048CB3E /* Assets.xcassets */,
-				B4343A9229599C7D0048CB3E /* LaunchScreen.storyboard */,
 				B4B702C82CBDAC64002AA975 /* Model */,
 				B4CD31772CB8670B00668615 /* Controller */,
 				B4343A9529599C7D0048CB3E /* Info.plist */,
@@ -90,6 +93,17 @@
 				B4B702C42CBD99C0002AA975 /* Constants.swift */,
 			);
 			path = "Lets Talk About Everything";
+			sourceTree = "<group>";
+		};
+		B4A0BD052CBEF09A001EBA9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B4343A8D29599C7B0048CB3E /* Main.storyboard */,
+				B4343A9229599C7D0048CB3E /* LaunchScreen.storyboard */,
+				B4A0BD062CBEF13C001EBA9D /* MessageCell.swift */,
+				B4A0BD072CBEF13C001EBA9D /* MessageCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B4B702C82CBDAC64002AA975 /* Model */ = {
@@ -173,6 +187,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4A0BD082CBEF13C001EBA9D /* MessageCell.xib in Resources */,
 				B4343A9429599C7D0048CB3E /* LaunchScreen.storyboard in Resources */,
 				B4836D6B2CB724C700BE729F /* GoogleService-Info.plist in Resources */,
 				B4343A9129599C7D0048CB3E /* Assets.xcassets in Resources */,
@@ -191,6 +206,7 @@
 				B4343A8A29599C7B0048CB3E /* SceneDelegate.swift in Sources */,
 				B4B702C52CBD99C0002AA975 /* Constants.swift in Sources */,
 				B4B702C72CBDAC40002AA975 /* Message.swift in Sources */,
+				B4A0BD092CBEF13C001EBA9D /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

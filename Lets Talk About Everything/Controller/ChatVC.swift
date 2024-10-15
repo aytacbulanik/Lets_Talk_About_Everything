@@ -16,7 +16,7 @@ class ChatVC: UIViewController {
     var messages : [Message] = [
         Message(sender: "ayt@gmail.com", body: "Hello"),
         Message(sender: "cyd@gmail.com", body: "Hi"),
-        Message(sender: "ayt@gmail.com", body: "Whats up!")
+        Message(sender: "ayt@gmail.com", body: "Whats up! Whats up! Whats up! Whats up! Whats up! Whats up! Whats up!Whats up! Whats up! Whats up!")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,8 @@ class ChatVC: UIViewController {
         title = Constants.appShortName
         navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logOutFunc))
+        
+        tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
     }
     
     @objc func logOutFunc() {
@@ -49,9 +51,9 @@ extension ChatVC : UITableViewDataSource , UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.chatIdentyfire, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifier, for: indexPath) as! MessageCell
         let message = messages[indexPath.row]
-        cell.textLabel?.text = message.body
+        cell.messageLabel.text = message.body
         return cell
     }
     
