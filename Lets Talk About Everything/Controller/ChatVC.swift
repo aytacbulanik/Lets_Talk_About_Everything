@@ -43,8 +43,9 @@ class ChatVC: UIViewController {
    
     @IBAction func sendMessageButton(_ sender: UIButton) {
         guard let messageBody = messageTextField.text , let userMail = Auth.auth().currentUser?.email else { return }
-        db.collection(Constants.messageFireStore).addDocument(data:
-            ["sender": userMail, "body": messageBody]) { error in
+        db.collection(Constants.collectionName).addDocument(data:[
+            Constants.senderFristore: userMail, Constants.bodyFristore: messageBody
+            ]) { error in
             if error != nil {
                 print(error?.localizedDescription)
             }

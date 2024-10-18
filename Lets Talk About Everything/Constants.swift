@@ -13,5 +13,7 @@ struct Constants {
     static let chatIdentyfire = "chatCell"
     static let cellNibName = "MessageCell"
     static let cellIdentifier = "MessageCell"
-    static let messageFireStore = "Messages"
+    static let collectionName = "Messages"
+    static let bodyFristore = "body"
+    static let senderFristore = "sender"
 }
