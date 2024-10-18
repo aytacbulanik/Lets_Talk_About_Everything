@@ -53,7 +53,7 @@ class ChatVC: UIViewController {
     }
     
     func getMessageData() {
-        db.collection(Constants.collectionName).getDocuments { querySnapshot, error in
+        db.collection(Constants.collectionName).addSnapshotListener { querySnapshot, error in
             if error != nil {
                 if let error {
                     print(error.localizedDescription)
@@ -67,9 +67,11 @@ class ChatVC: UIViewController {
                     let sender = data[Constants.senderFristore] as? String ?? ""
                     let message = Message(sender: sender, body: body)
                     self.messages.append(message)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
-            self.tableView.reloadData()
         }
     }
     
