@@ -15,11 +15,7 @@ class ChatVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     let db = Firestore.firestore()
     
-    var messages : [Message] = [
-        Message(sender: "ayt@gmail.com", body: "Hello"),
-        Message(sender: "cyd@gmail.com", body: "Hi"),
-        Message(sender: "ayt@gmail.com", body: "Whats up! Whats up! Whats up! Whats up! Whats up! Whats up! Whats up!Whats up! Whats up! Whats up!")
-    ]
+    var messages : [Message] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -29,6 +25,7 @@ class ChatVC: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log Out", style: .done, target: self, action: #selector(logOutFunc))
         
         tableView.register(UINib(nibName: Constants.cellNibName, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+        getMessageData()
     }
     
     @objc func logOutFunc() {
@@ -47,9 +44,32 @@ class ChatVC: UIViewController {
             Constants.senderFristore: userMail, Constants.bodyFristore: messageBody
             ]) { error in
             if error != nil {
-                print(error?.localizedDescription)
+                if let error {
+                    print(error.localizedDescription)
+                }
             }
             self.messageTextField.text = ""
+        }
+    }
+    
+    func getMessageData() {
+        db.collection(Constants.collectionName).getDocuments { querySnapshot, error in
+            if error != nil {
+                if let error {
+                    print(error.localizedDescription)
+                }
+            }
+            self.messages.removeAll(keepingCapacity: true)
+            if let snapShot =  querySnapshot?.documents {
+                for snap in snapShot {
+                    let data = snap.data()
+                    let body = data[Constants.bodyFristore] as? String ?? ""
+                    let sender = data[Constants.senderFristore] as? String ?? ""
+                    let message = Message(sender: sender, body: body)
+                    self.messages.append(message)
+                }
+            }
+            self.tableView.reloadData()
         }
     }
     
