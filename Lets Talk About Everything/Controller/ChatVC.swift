@@ -41,7 +41,7 @@ class ChatVC: UIViewController {
     @IBAction func sendMessageButton(_ sender: UIButton) {
         guard let messageBody = messageTextField.text , let userMail = Auth.auth().currentUser?.email else { return }
         db.collection(Constants.collectionName).addDocument(data:[
-            Constants.senderFristore: userMail, Constants.bodyFristore: messageBody
+            Constants.senderFristore: userMail, Constants.bodyFristore: messageBody , Constants.dateFirestore : Date().timeIntervalSince1970
             ]) { error in
             if error != nil {
                 if let error {
@@ -53,7 +53,9 @@ class ChatVC: UIViewController {
     }
     
     func getMessageData() {
-        db.collection(Constants.collectionName).addSnapshotListener { querySnapshot, error in
+        db.collection(Constants.collectionName)
+            .order(by: Constants.dateFirestore, descending: false)
+            .addSnapshotListener { querySnapshot, error in
             if error != nil {
                 if let error {
                     print(error.localizedDescription)

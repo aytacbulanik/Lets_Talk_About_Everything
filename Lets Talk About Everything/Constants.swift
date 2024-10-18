@@ -16,4 +16,5 @@ struct Constants {
     static let collectionName = "Messages"
     static let bodyFristore = "body"
     static let senderFristore = "sender"
+    static let dateFirestore = "date"
 }
