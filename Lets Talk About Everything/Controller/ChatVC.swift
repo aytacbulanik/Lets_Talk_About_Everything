@@ -7,11 +7,13 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class ChatVC: UIViewController {
 
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    let db = Firestore.firestore()
     
     var messages : [Message] = [
         Message(sender: "ayt@gmail.com", body: "Hello"),
@@ -40,7 +42,14 @@ class ChatVC: UIViewController {
     }
    
     @IBAction func sendMessageButton(_ sender: UIButton) {
-        
+        guard let messageBody = messageTextField.text , let userMail = Auth.auth().currentUser?.email else { return }
+        db.collection(Constants.messageFireStore).addDocument(data:
+            ["sender": userMail, "body": messageBody]) { error in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            self.messageTextField.text = ""
+        }
     }
     
 }
