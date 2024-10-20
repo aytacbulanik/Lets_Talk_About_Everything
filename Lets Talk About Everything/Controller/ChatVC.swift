@@ -71,6 +71,8 @@ class ChatVC: UIViewController {
                     self.messages.append(message)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        self.tableView.scrollToRow(at: IndexPath(row: self.messages.count - 1, section: 0), at: .bottom, animated: true)
+                        self.tableView.insetsLayoutMarginsFromSafeArea = false
                     }
                 }
             }

@@ -16,6 +16,15 @@ class WelcomeVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     var charIndex = 0.0
     
+    override func viewIsAppearing(_ animated: Bool) {
+        super.viewIsAppearing(animated)
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButtonOut.layer.cornerRadius = 10
